@@ -1,0 +1,69 @@
+@import "./base.scss";
+
+/** 字体大小*/
+$base-font-size:1rem;
+$font-sizes:(
+    "xm" : 0.75,     // 12px 
+    "sm" : 0.875,    // 14px
+    "md" : 1,        // 16px
+    "lg":  1.125    // 18px
+);
+@each $sizeKey,$size in $font-sizes {
+    .fs-#{$sizeKey}{
+        font-size: $size * $base-font-size;
+    }
+}
+
+// text- left/center/right   对齐方式
+@each $var in (left,center,right){
+    .text-#{$var}{
+        text-align:$var;
+    }
+};
+
+/** 字体色、 背景色 */
+$colors: (
+    "primary": #db9e3f,
+    "white":#fff,
+    "dark":#222
+);
+@each $colorkey,$color in $colors {
+    .text-#{$colorkey}{
+        color:$color
+    }
+    .bg-#{$colorkey}{
+        background-color:$color
+    }
+    
+};
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+}
+
+//使用
+// @include borderRadius();
+// @include important-text;
+
+// padding : 5/10/15
+$padding :(
+    5: 0.3125rem, 
+    10: 0.625rem,
+    15: 0.9375rem,
+);
+@each $key,$value in $padding {
+    .padding-#{$key}{
+        padding:$value
+    }
+};

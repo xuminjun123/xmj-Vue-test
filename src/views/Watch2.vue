@@ -1,5 +1,5 @@
 <!--
- * @Description: 
+ * @Description:  监听路由
  * @param : 
  * @return: 
  * @Author: xmj
@@ -74,11 +74,11 @@ export default {
     },
     computed: {},
     mounted() {
-    window.addEventListener("scroll", this.handleScroll, true);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
+        window.addEventListener("scroll", this.handleScroll, true);
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.handleScroll);
+    },
     methods: {
         onLinkClick(value, name) {
             this.activeLink = value;
@@ -87,12 +87,16 @@ export default {
                 block: 'start',
                 inline: 'nearest'
             })
-        }
+        },
+        handleScroll() {
+            let scrollTop = window.pageYOffset;
+            console.log("ST===>", scrollTop);
+            if (scrollTop >= 200) {
+              
+            }
+        },
     },
     created() { },
-    mounted() {
-        console.log('Watch2页面');
-    }
 };
 </script>
 <style lang="scss" scoped>
