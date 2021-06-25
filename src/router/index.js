@@ -8,6 +8,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+const NotFound =()=> import("@/views/NotFound.vue")
 
 Vue.use(VueRouter);
 
@@ -378,7 +379,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ComputedTest.vue"),
   },
-  
+
   {
     path: "/LookDocument",
     name: "LookDocument",
@@ -388,6 +389,29 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/LookDocument.vue"),
   },
+  {
+    path: "/ESTest",
+    name: "ESTest",
+    meta: {
+      title: "ESTest",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/ESTest.vue"),
+  },
+
+  {
+    path: "/redirect",
+    // redirect:"/Table",
+    redirect:{
+      name:'Table'
+    }
+  },
+
+  // 全不匹配 情况下
+  {
+    path:"*",
+    component:NotFound
+  }
 ];
 
 const router = new VueRouter({

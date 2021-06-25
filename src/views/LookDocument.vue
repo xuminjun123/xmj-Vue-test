@@ -52,12 +52,14 @@
 </template>
 
 <script>
+import img from "@/assets/logo.png";    
 export default {
     name: 'vueName',
     components: {},
     props: {},
     data() {
         return {
+            img,
         };
     },
     watch: {},
@@ -76,7 +78,9 @@ export default {
             }
         },
     },
-    created() { },
+    created() { 
+      
+    },
     mounted() {
         window.addEventListener("scroll", this.handleScroll, true);
     },

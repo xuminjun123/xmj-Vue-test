@@ -11,15 +11,16 @@
     <base-modal
       :title="modalTitle"
       :visible.sync="visible"
-      @click="handleSubmit({ subSysName: 'ruleForm' })"
+      @click="handleSubmit"
       @cancel="handleCancel"
       btn-txt="保存"
       width="30%"
     >
       <p>eldialog</p>
+      {{ input }}
     </base-modal>
     <button @click="tab">点击 -- dialog</button>
-    <button @click="Tip"> 点击 $tip</button>
+    <button @click="Tip">点击 $tip</button>
   </div>
 </template>
 
@@ -35,26 +36,38 @@ export default {
       modalTitle: "dialog-test",
       formLabelWidth: "120px",
       visible: false,
+      input: ''
     };
   },
   watch: {},
   computed: {},
   methods: {
-      tab(){
-          this.visible = true;
-      },
-      Tip(){
-        this.$load.open();
-        setTimeout(()=>{
-            this.$load.close();
-        },2000)
-      },
-      handleCancel(){
-        this.visible = false;
+    tab() {
+      this.visible = true;
+    },
+    Tip() {
+      this.$load.open();
+      setTimeout(() => {
+        this.$load.close();
+      }, 2000)
+    },
+    handleCancel() {
+      this.visible = false;
+    },
+    handleSubmit() {
+      this.input = {
+        name: "xxx",
+        ahe: "13"
       }
+      // 深拷贝
+      let input = JSON.parse(JSON.stringify(this.input))
+      console.log(input === this.input);// false
+
+      this.visible = false;
+    }
   },
-  created() {},
-  mounted() {},
+  created() { },
+  mounted() { },
 };
 </script>
 <style lang="scss" scoped>

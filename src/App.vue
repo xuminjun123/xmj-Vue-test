@@ -66,6 +66,8 @@
       <br />
       <router-link to="/ComputedTest">ComputedTest</router-link>|
       <router-link to="/LookDocument">LookDocument</router-link>|
+      <router-link to="/redirect">redirect</router-link>|
+      <router-link to="/ESTest">ESTest</router-link>|
     </div>
     <router-view />
   </div>
@@ -78,7 +80,9 @@ export default {
   components: { Breadcrumb, TabView },
   props: {},
   data() {
-    return {};
+    return {
+      list:[]
+    };
   },
   watch: {
     // $route:{

@@ -33,6 +33,7 @@ Vue.config.productionTip = false;
 // 场景:监听性能
 Vue.config.performance = true 
 
+
 new Vue({
   router,
   store,

@@ -100,6 +100,7 @@ export default {
 
   data() {
     return {
+      input: ''
       // myVisible: this.visible
     };
   },
