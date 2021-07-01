@@ -20,7 +20,7 @@
 
     <!-- 路由 -->
     <div id="nav">
-      <router-link to="/index">Home</router-link>|
+      <router-link to="/index-home">Home</router-link>|
       <router-link to="/about">About</router-link>|
       <router-link to="/dialog">el-dialog</router-link>|
       <router-link to="/Scroller">el- scrollbar</router-link>|
@@ -68,6 +68,8 @@
       <router-link to="/LookDocument">LookDocument</router-link>|
       <router-link to="/redirect">redirect</router-link>|
       <router-link to="/ESTest">ESTest</router-link>|
+      <router-link to="/farm">farm</router-link>|
+      <router-link to="/Props">Props</router-link>|
     </div>
     <router-view />
   </div>

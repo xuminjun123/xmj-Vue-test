@@ -19,11 +19,13 @@ export default {
   props: {},
   data() {
     return {
-      msg: "message1",
+      msg: "message1"
     };
   },
   watch: {},
-  computed: {},
+  computed: {
+
+  },
   methods: {},
   created() {},
   mounted() {},

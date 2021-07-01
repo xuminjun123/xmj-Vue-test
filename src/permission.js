@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @param : 
+ * @return: 
+ * @Author: xmj
+ * @Date: 2021-06-11 09:57:27
+ */
 import router from './router'
 import store from './store'
 import { Message } from 'element-ui'

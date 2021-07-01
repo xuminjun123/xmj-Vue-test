@@ -7,6 +7,9 @@
  */
 import request from "@/utils/request";
 
+console.log('process=>', process.env.VUE_APP_BASE_API  );
+
+
 // 获取验证码
 export function getCodeImg() {
   return request({

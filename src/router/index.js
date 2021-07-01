@@ -14,7 +14,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/index",
+    path: "/index-home",
     name: "index-home",
     component: Home,
     meta: {
@@ -406,6 +406,42 @@ const routes = [
       name:'Table'
     }
   },
+  {
+    path: "/farm",
+    name:"farm",
+    redirect:'/cat',
+    component: () => import('@/views/farm/index.vue'),
+    children:[
+      {
+        path: '/cat',
+        name: 'cat',
+        props: true,  // 使用 props 解耦
+        component: () => import('@/views/farm/cat/index.vue'),
+        meta: {
+          title: 'cat',
+        }
+      },
+      {
+        path: '/dog/:id',
+        name: 'dog',
+        props: true,  // 使用 props 解耦
+        component: () => import('@/views/farm/dog/index.vue'),
+        meta: {
+          title: 'dog',
+        }
+      },
+      {
+        path: '/Props',
+        name: 'Props',
+        component: () => import('../views/Props.vue'),
+        meta: {
+          title: 'dog',
+        }
+      },
+    ]
+  },
+
+
 
   // 全不匹配 情况下
   {

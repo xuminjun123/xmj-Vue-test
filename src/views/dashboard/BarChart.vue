@@ -245,6 +245,24 @@ export default {
             //   data: [79, 52, 200, 334],
             data: this.seriesData, // 数据传进来
             animationDuration,
+
+                //       itemStyle: {
+    //         normal: {
+    //           shadowColor: 'rgba(0, 0, 0, 0.3)',  // 阴影
+    //           shadowBlur: 10,
+    //           shadowOffsetX: '8',
+    //           // barBorderRadius: [10, 10, 0, 0],   // 圆角
+    //           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+    //             offset: 0,
+    //             color: '#ff7e45'
+    //           },
+    //           {
+    //             offset: 1,
+    //             color: '#ffba67'
+    //           }
+    //           ])
+    //         }
+    //       }
           },
         ],
       });
