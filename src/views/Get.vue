@@ -7,7 +7,7 @@
 -->
 <template>
   <div class="wrapper">
-   <get-data></get-data>
+   <get-data :styleObject="styleObject"></get-data>
     <button @click="change">点击</button>
   </div>
 </template>
@@ -20,7 +20,12 @@ export default {
   props: {},
   data() {
     return {
-      num:10 
+      num:10 ,
+      styleObject:{
+        color:"red",
+        fontSize: "100px"
+      }
+
     };
   },
   watch: {},
@@ -31,7 +36,14 @@ export default {
       console.log('num改变的值===>',this.num);     
     }
   },
-  created() {},
+  created() {
+    let arr = [1,23,4,5]
+    let _arr = arr.slice()
+    console.log('arr===>',_arr);
+    console.log('is----->',arr === _arr);
+    
+    
+  },
   mounted() {
     this.num = 1000
   }

@@ -1,5 +1,9 @@
 <!--
  * @Description: slot 
+        - 默认插槽的话直接在子组件的标签内写入内容即可
+        - 具名插槽是在默认插槽的基础上加上slot属性，值为子组件插槽name属性值
+        - 作用域插槽则是通过slot-scope获取子组件的信息，在内容中使用。这里可以用解构语法去直接获取想要的属性
+
  * @param : 
  * @return: 
  * @Author: xmj
@@ -10,7 +14,18 @@
         <slot-test>
             <p>content1</p>
             <p slot="user">content2</p>
-            <template v-slot:user>content2</template>
+
+            <!-- 父组件键接受 子组件 传递的testpros -->
+            <div slot="footer" slot-scope="slotProps">{{ slotProps.testProps }}</div>
+
+            <template v-slot:main>
+                <!-- 这里v-slot：后边的值与组件内的slot的name属性对应，也就是插槽的名称。 -->
+                <div>test</div>
+            </template>
+
+            <template v-slot:page="message">
+                <div>{{ message.aa }}</div>
+            </template>
         </slot-test>
         <!-- 流光按钮 -->
         <button class="btn">button</button>
@@ -31,7 +46,14 @@ export default {
     computed: {},
     methods: {},
     created() { },
-    mounted() { }
+    mounted() {
+        this.$del().then((result) => {
+            console.log(result);
+            
+        }).catch((err) => {
+            
+        });
+     }
 };
 </script>
 <style lang="scss" scoped>

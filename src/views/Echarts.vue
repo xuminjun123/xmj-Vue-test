@@ -56,6 +56,12 @@
       </div>
     </el-card>
 
+    <el-card class="box-card">
+      <div class="chart-wrapper">
+       <china-chart></china-chart>
+      </div>
+    </el-card>
+
   </div>
 </template>
 
@@ -64,6 +70,9 @@ import BarChart from "@/views/dashboard/BarChart";
 import LineChart from './dashboard/LineChart.vue';
 import PieChart from './dashboard/PieChart.vue';
 import RaddarChart from './dashboard/RaddarChart.vue';
+
+import ChinaChart from "@/views/dashboard/ChinaChart.vue"
+// import ChinaChart from './dashboard/ChinaChart.vue';
 export default {
   name: "echarts",
   components: {
@@ -71,6 +80,9 @@ export default {
     LineChart,
     PieChart,
     RaddarChart,
+
+    ChinaChart,
+    // ChinaChart,
   },
   props: {},
   data() {

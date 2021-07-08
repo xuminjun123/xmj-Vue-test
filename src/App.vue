@@ -1,5 +1,14 @@
 <!--
- * @Description: 
+ * @Description:  addRoutes
+  {
+    path: "/AddRouterTest",
+    name: "AddRouterTest",
+    meta: {
+      title: "AddRouterTest",
+    },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AddRouterTest.vue"),
+  },
  * @param : 
  * @return: 
  * @Author: xmj
@@ -58,9 +67,9 @@
       <br />
       <router-link to="/Echarts">Echarts</router-link>|
       <router-link to="/Exports">Exports</router-link>|
-      <router-link to="/Table">Table</router-link>| 
+      <router-link to="/Table">Table</router-link>|
       <router-link to="/Tab">Tab 标签</router-link>|
-      <router-link to="/Scroll">Scroll </router-link>|
+      <router-link to="/Scroll">Scroll</router-link>|
       <router-link to="/AudioTest">AudioTest</router-link>|
       <router-link to="/ScssTest">ScssTest</router-link>|
       <br />
@@ -70,6 +79,11 @@
       <router-link to="/ESTest">ESTest</router-link>|
       <router-link to="/farm">farm</router-link>|
       <router-link to="/Props">Props</router-link>|
+      <br />
+      <router-link to="/Process">Process</router-link>|
+      <router-link to="/AddRouterTest">AddRouterTest</router-link>|
+      <router-link to="/ShowPwd">ShowPwd</router-link>|
+      <router-link to="/Flex">flex</router-link>|
     </div>
     <router-view />
   </div>
@@ -83,7 +97,7 @@ export default {
   props: {},
   data() {
     return {
-      list:[]
+      list: []
     };
   },
   watch: {
@@ -100,8 +114,11 @@ export default {
   computed: {},
   methods: {
   },
-  created() { },
-  mounted() { },
+  created() {
+   },
+  mounted() {
+   
+  },
 };
 </script>
 <style lang="scss">

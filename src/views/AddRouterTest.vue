@@ -1,13 +1,14 @@
 <!--
- * @Description: 
+ * @Description: vue $router.addRoutes
  * @param : 
  * @return: 
  * @Author: xmj
- * @Date: 2021-06-08 10:56:07
+ * @Date: 2021-07-05 10:07:27
 -->
 <template>
   <div class="wrapper">
-      <p :style="styleObject">显示之前num</p>
+    AddRouterTest 页面
+    
   </div>
 </template>
 
@@ -15,12 +16,7 @@
 export default {
   name: 'vueName',
   components: {},
-  props: {
-    styleObject:{
-      type: Object,
-      default : ()=>{}
-    }
-  },
+  props: {},
   data() {
     return {
     };

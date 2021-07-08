@@ -12,6 +12,10 @@ import store from "./store";
 import "@/core"; // 管理第三方库、全局变量
 import Loading from "./utils/loading";
 
+
+import $del from "@/components/Modal/Del";
+Vue.use($del);
+
 // import echarts from "echarts";
 // Vue.component("chart", echarts);
 // Vue.prototype.$echarts = echarts;
@@ -25,7 +29,8 @@ Vue.use(infiniteScroll);
 import Tip from "./utils/tip";
 Vue.prototype.$tip = Tip;
 Vue.prototype.$load = Loading;
-
+// template 中简化打印
+Vue.prototype.$log = window.console.log
 // 阻止启动生产消息
 Vue.config.productionTip = false; 
 

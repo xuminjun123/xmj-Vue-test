@@ -8,10 +8,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-const NotFound =()=> import("@/views/NotFound.vue")
-
+const NotFound = () => import("@/views/NotFound.vue")
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/index-home",
@@ -400,18 +398,28 @@ const routes = [
   },
 
   {
+    path: "/ShowPwd",
+    name: "ShowPwd",
+    meta: {
+      title: "ShowPwd",
+    },
+    component: () =>
+      import(/* webpackChunkName: "ShowPwd" */ "../views/ShowPwd.vue"),
+  },
+
+  {
     path: "/redirect",
     // redirect:"/Table",
-    redirect:{
-      name:'Table'
+    redirect: {
+      name: 'Table'
     }
   },
   {
     path: "/farm",
-    name:"farm",
-    redirect:'/cat',
+    name: "farm",
+    redirect: '/cat',
     component: () => import('@/views/farm/index.vue'),
-    children:[
+    children: [
       {
         path: '/cat',
         name: 'cat',
@@ -441,14 +449,44 @@ const routes = [
     ]
   },
 
+  {
+    path: "/Process",
+    name: "Process",
+    meta: {
+      title: "Process",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Process" */ "../views/Process.vue"),
+  },
+
+  
+  {
+    path: "/Flex",
+    name: "Flex",
+    meta: {
+      title: "Flex",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Process" */ "../views/Flex.vue"),
+  },
 
 
   // 全不匹配 情况下
   {
-    path:"*",
-    component:NotFound
+    path: "*",
+    component: NotFound
   }
 ];
+
+let r = [{
+  path: "/AddRouterTest",
+  name: "AddRouterTest",
+  meta: {
+    title: "AddRouterTest",
+  },
+  component: () =>
+    import(/* webpackChunkName: "about" */ "@/views/AddRouterTest.vue"),
+}];
 
 const router = new VueRouter({
   mode: "history",
@@ -456,4 +494,9 @@ const router = new VueRouter({
   routes,
 });
 
+const flag = true;
+// router gards
+if (flag) {
+  router.addRoutes(r)
+}
 export default router;
