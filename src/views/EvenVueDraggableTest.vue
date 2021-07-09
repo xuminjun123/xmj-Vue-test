@@ -63,7 +63,7 @@ export default {
                 { id: 1, name: 'www.itxst.com' },
                 { id: 2, name: 'www.jd.com' },
                 { id: 3, name: 'www.baidu.com' },
-                { id: 3, name: 'www.taobao.com' }
+                { id: 4, name: 'www.taobao.com' }
             ],
             arr2: [
                 { id: 1, name: 'www.google.com' },

@@ -2,7 +2,8 @@
  * element-ui按需引入配置
  */
 import Vue from "vue";
-import "element-ui/lib/theme-chalk/index.css";
+import '@/theme/index.css'
+// import "element-ui/lib/theme-chalk/index.css";
 
 import {
   Pagination,

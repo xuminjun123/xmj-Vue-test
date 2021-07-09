@@ -86,6 +86,8 @@
       <router-link to="/Flex">flex</router-link>|
       <router-link to="/oddVueDraggableTest">oddVueDraggableTest</router-link>|
       <router-link to="/EvenVueDraggableTest">EvenVueDraggableTest</router-link>|
+      <br />
+      <router-link to="/Sort">Sort</router-link>|
     </div>
     <router-view />
   </div>

@@ -489,6 +489,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "oddVueDraggableTest" */ "../views/EvenVueDraggableTest.vue"),
   },
+  {
+    path: "/Sort",
+    name: "Sort",
+    meta: {
+      title: "Sort",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Sort" */ "../views/Sort.vue"),
+  },
 
 
   // 全不匹配 情况下
