@@ -7,6 +7,9 @@
 -->
 <template>
     <div class="wrapper">
+        <p :class="multiline | m">11111111111</p>
+        <!--  -->
+        <p class="cl" :style="{'--bg': bg}">bggggggggg</p>
         <div class="content">
             <div>1</div>
             <div>2</div>
@@ -42,13 +45,22 @@ export default {
     props: {},
     data() {
         return {
+            multiline:"multiline",
+            bg:"red"
         };
     },
     watch: {},
-    computed: {},
+    computed: {
+    },
     methods: {},
     created() { },
-    mounted() { }
+    mounted() { },
+    filters:{
+        m(val) {
+            console.log('val===>',val);
+            return "m"
+        }
+    }
 };
 </script>
 <style lang="scss" scoped>
@@ -56,6 +68,17 @@ export default {
 @import "@/style/flex.scss";
 $color: red;
 .wrapper {
+    .m{
+        color: yellow;
+        font-size: 120px;
+    };
+    .multiline {
+        color: red;
+        font-size: 100px ;
+    }
+    .cl {
+        background: var(--bg);
+    }
     .border {
         border: 1px solid salmon;
     }

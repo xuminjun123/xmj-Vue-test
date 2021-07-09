@@ -470,6 +470,26 @@ const routes = [
       import(/* webpackChunkName: "Process" */ "../views/Flex.vue"),
   },
 
+  {
+    path: "/oddVueDraggableTest",
+    name: "oddVueDraggableTest",
+    meta: {
+      title: "oddVueDraggableTest",
+    },
+    component: () =>
+      import(/* webpackChunkName: "oddVueDraggableTest" */ "../views/oddVueDraggableTest.vue"),
+  },
+
+  {
+    path: "/EvenVueDraggableTest",
+    name: "EvenVueDraggableTest",
+    meta: {
+      title: "EvenVueDraggableTest",
+    },
+    component: () =>
+      import(/* webpackChunkName: "oddVueDraggableTest" */ "../views/EvenVueDraggableTest.vue"),
+  },
+
 
   // 全不匹配 情况下
   {

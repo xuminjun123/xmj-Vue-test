@@ -84,6 +84,8 @@
       <router-link to="/AddRouterTest">AddRouterTest</router-link>|
       <router-link to="/ShowPwd">ShowPwd</router-link>|
       <router-link to="/Flex">flex</router-link>|
+      <router-link to="/oddVueDraggableTest">oddVueDraggableTest</router-link>|
+      <router-link to="/EvenVueDraggableTest">EvenVueDraggableTest</router-link>|
     </div>
     <router-view />
   </div>
