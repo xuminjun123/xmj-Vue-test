@@ -88,6 +88,7 @@
       <router-link to="/EvenVueDraggableTest">EvenVueDraggableTest</router-link>|
       <br />
       <router-link to="/Sort">Sort</router-link>|
+      <router-link to="/Transtion">Transtion</router-link>|
     </div>
     <router-view />
   </div>

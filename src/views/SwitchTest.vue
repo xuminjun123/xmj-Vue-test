@@ -8,6 +8,12 @@
 <template>
   <div class="wrapper">
     <switches :switches="switches" @switch="switchClick" :currentIndex="currentIndex"></switches>
+    <div v-if="currentIndex  === 0">
+      选项1
+    </div>
+    <div v-if="currentIndex  === 1">
+      选项2
+    </div>
   </div>
 </template>
 
@@ -30,7 +36,9 @@ export default {
       this.currentIndex = index;
     }
   },
-  created() { },
+  created() { 
+    
+  },
   mounted() { }
 };
 </script>

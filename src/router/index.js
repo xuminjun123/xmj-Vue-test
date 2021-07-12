@@ -499,6 +499,16 @@ const routes = [
       import(/* webpackChunkName: "Sort" */ "../views/Sort.vue"),
   },
 
+  {
+    path: "/Transtion",
+    name: "Transtion",
+    meta: {
+      title: "Transtion",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "../views/Transtion.vue"),
+  },
+
 
   // 全不匹配 情况下
   {
