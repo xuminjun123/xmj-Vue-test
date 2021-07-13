@@ -16,6 +16,11 @@ import Loading from "./utils/loading";
 import $del from "@/components/Modal/Del";
 Vue.use($del);
 
+
+import toast from "@/components/Toast/toast.js";
+console.log('toast',toast);
+
+Vue.prototype.$toast = toast;
 // import echarts from "echarts";
 // Vue.component("chart", echarts);
 // Vue.prototype.$echarts = echarts;

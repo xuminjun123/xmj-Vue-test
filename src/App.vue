@@ -89,6 +89,7 @@
       <br />
       <router-link to="/Sort">Sort</router-link>|
       <router-link to="/Transtion">Transtion</router-link>|
+      <router-link to="/Toast">Toast</router-link>|
     </div>
     <router-view />
   </div>

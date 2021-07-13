@@ -509,6 +509,15 @@ const routes = [
       import(/* webpackChunkName: "Transtion" */ "../views/Transtion.vue"),
   },
 
+  {
+    path: "/Toast",
+    name: "Toast",
+    meta: {
+      title: "Toast",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "../views/Toast.vue"),
+  },
 
   // 全不匹配 情况下
   {
