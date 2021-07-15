@@ -90,6 +90,9 @@
       <router-link to="/Sort">Sort</router-link>|
       <router-link to="/Transtion">Transtion</router-link>|
       <router-link to="/Toast">Toast</router-link>|
+      <router-link to="/Cesium">Cesium</router-link>|
+      <router-link to="/Tree">Tree</router-link>|
+      <router-link to="/Directive">Directive</router-link>|
     </div>
     <router-view />
   </div>

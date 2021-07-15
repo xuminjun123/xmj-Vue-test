@@ -12,20 +12,28 @@ import store from "./store";
 import "@/core"; // 管理第三方库、全局变量
 import Loading from "./utils/loading";
 
+// Cesium
+// import Cesium from 'cesium/Cesium'
+// import 'cesium/Widgets/widgets.css' 
+// Vue.prototype.Cesium=Cesium;
 
 import $del from "@/components/Modal/Del";
 Vue.use($del);
 
 
 import toast from "@/components/Toast/toast.js";
-console.log('toast',toast);
-
 Vue.prototype.$toast = toast;
+
 // import echarts from "echarts";
 // Vue.component("chart", echarts);
 // Vue.prototype.$echarts = echarts;
+
 import "./assets/icons"; // icon
 // import "./permission"; // 权限管理
+
+// 自定义指令
+import isDel from "@/utils/directive/index.js"
+Vue.use(isDel);
 
 // 滚动插件
 import infiniteScroll from "vue-infinite-scroll";

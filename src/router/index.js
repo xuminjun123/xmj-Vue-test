@@ -519,6 +519,36 @@ const routes = [
       import(/* webpackChunkName: "Transtion" */ "../views/Toast.vue"),
   },
 
+  {
+    path: "/Cesium",
+    name: "Cesium",
+    meta: {
+      title: "Cesium",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Cesium.vue"),
+  },
+
+  {
+    path: "/Tree",
+    name: "Tree",
+    meta: {
+      title: "Tree",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Tree.vue"),
+  },
+
+  {
+    path: "/Directive",
+    name: "Directive",
+    meta: {
+      title: "Directive",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Directive.vue"),
+  },
+
   // 全不匹配 情况下
   {
     path: "*",

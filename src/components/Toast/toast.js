@@ -6,7 +6,7 @@
  * @Date: 2021-07-13 15:41:48
  */
 import Vue from "vue";
-import { duration } from 'moment';
+
 import Toast from './ToastChild.vue'
 const ToastConstructor = Vue.extend(Toast);
 function showToast(text) {
