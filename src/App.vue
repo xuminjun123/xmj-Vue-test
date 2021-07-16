@@ -93,6 +93,9 @@
       <router-link to="/Cesium">Cesium</router-link>|
       <router-link to="/Tree">Tree</router-link>|
       <router-link to="/Directive">Directive</router-link>|
+      <router-link to="/TouchBottom">TouchBottom</router-link>|
+      <br />
+      <router-link to="/Screenfull">Screenfull</router-link>|
     </div>
     <router-view />
   </div>

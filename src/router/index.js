@@ -1,5 +1,5 @@
 /*
- * @Description:
+ * @Description: 路由
  * @param :
  * @return:
  * @Author: xmj
@@ -548,6 +548,27 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Transtion" */ "@/views/Directive.vue"),
   },
+
+  {
+    path: "/TouchBottom",
+    name: "TouchBottom",
+    meta: {
+      title: "TouchBottom",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/TouchBottom.vue"),
+  },
+
+  {
+    path: "/Screenfull",
+    name: "Screenfull",
+    meta: {
+      title: "Screenfull",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Screenfull.vue"),
+  },
+
 
   // 全不匹配 情况下
   {
