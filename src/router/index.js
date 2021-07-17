@@ -8,6 +8,29 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+
+// const originalPush = VueRouter.prototype.push
+
+// VueRouter.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
+
+const originalPush = VueRouter.prototype.push;
+const originalReplace = VueRouter.prototype.replace;
+
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalPush.call(this, location, onResolve, onReject);
+  return originalPush.call(this, location).catch(err => err);
+};
+
+VueRouter.prototype.replace = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalReplace.call(this, location, onResolve, onReject);
+  return originalReplace.call(this, location).catch(err => err);
+};
+
+
 const NotFound = () => import("@/views/NotFound.vue")
 Vue.use(VueRouter);
 const routes = [
@@ -569,6 +592,15 @@ const routes = [
       import(/* webpackChunkName: "Transtion" */ "@/views/Screenfull.vue"),
   },
 
+  {
+    path: "/Size",
+    name: "Size",
+    meta: {
+      title: "Size",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Size.vue"),
+  },
 
   // 全不匹配 情况下
   {
@@ -586,6 +618,7 @@ let r = [{
   component: () =>
     import(/* webpackChunkName: "about" */ "@/views/AddRouterTest.vue"),
 }];
+
 
 const router = new VueRouter({
   mode: "history",

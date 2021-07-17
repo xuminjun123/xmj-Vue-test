@@ -9,7 +9,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 // vuex 日志插件
 import { createLogger } from "vuex"   
-
+import Cookies from 'js-cookie'
 Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
@@ -20,6 +20,8 @@ export default new Vuex.Store({
     count:0,
     isLogin:false,
     id:1,
+
+    size: Cookies.get('size') || 'medium'
   },
   getters: {
     collapsed: state => state.collapse,
@@ -40,6 +42,11 @@ export default new Vuex.Store({
     // payload
     setId:(state, payload )=>{
       state.id = payload.id;
+    },
+
+    SET_SIZE: (state, size) => {
+      state.size = size
+      Cookies.set('size', size)
     }
   },
   actions: {
@@ -61,6 +68,10 @@ export default new Vuex.Store({
     commitId({ commit },id) {
       commit("setId", id);
     },
+
+    setSize({ commit }, size) {
+      commit('SET_SIZE', size)
+    }
   },
   modules: {},
 

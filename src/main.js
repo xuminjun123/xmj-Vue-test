@@ -51,6 +51,14 @@ Vue.config.productionTip = false;
 // 场景:监听性能
 Vue.config.performance = true 
 
+import Element from "element-ui";
+import Cookies from 'js-cookie'
+// 设置Element  Dialog点击其他地方不关闭。
+Element.Dialog.props.closeOnClickModal.default = false;
+Vue.use(Element, {
+  size: Cookies.get("size") || "medium" // set element-ui default size
+});
+
 
 new Vue({
   router,
