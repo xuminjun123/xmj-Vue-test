@@ -600,7 +600,17 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "Transtion" */ "@/views/Size.vue"),
-  },
+  }, 
+
+  {
+    path: "/QuillEditor",
+    name: "QuillEditor",
+    meta: {
+      title: "QuillEditor",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/QuillEditor.vue"),
+  }, 
 
   // 全不匹配 情况下
   {

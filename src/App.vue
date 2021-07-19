@@ -96,7 +96,8 @@
       <router-link to="/TouchBottom">TouchBottom</router-link>|
       <br />
       <router-link to="/Screenfull">Screenfull</router-link>|
-      <router-link to="/Size">Size</router-link>|
+      <router-link to="/Size">Size</router-link>|     
+      <router-link to="/QuillEditor">QuillEditor</router-link>|
     </div>
     <router-view />
   </div>

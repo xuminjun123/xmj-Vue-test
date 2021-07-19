@@ -17,6 +17,22 @@ import Loading from "./utils/loading";
 // import 'cesium/Widgets/widgets.css' 
 // Vue.prototype.Cesium=Cesium;
 
+// 文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+//  其中 Vue.use(VueQuillEditor, /* { default global options } */)
+//  第二个参数是 Quill 的配置。在这里我只改了默认的 placeholder 提示语，
+//  所以最后一行应该是：
+// https://quilljs.com/docs/configuration/ 详情见
+Vue.use(VueQuillEditor, {
+  placeholder: '请输入内容',
+});
+
+
+
 import $del from "@/components/Modal/Del";
 Vue.use($del);
 
