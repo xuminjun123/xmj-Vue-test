@@ -7,6 +7,15 @@
 -->
 <template>
     <div class="wrapper">
+        <table-list
+            :loading="loading"
+            :table-data="tableData"
+            :table-label="tableLabel"
+            tableRef="tableRef"
+            select-show
+            :row-key="rowKey"
+            @handleSelectionChange="handleSelectionChange"
+        ></table-list>
         <el-table
             :data="tableData"
             style="width: 100%"
@@ -21,9 +30,16 @@
 </template>
   
 <script>
+import TableList from "@/components/Table/TableList.vue"    
 export default {
+    components:{
+        TableList
+    },
     data() {
         return {
+            loading:false,
+            rowKey:"",
+            tableLabel:[],
             tableData: [
                 {
                     id: 1,
@@ -79,6 +95,10 @@ export default {
         }
     },
     methods: {
+        handleSelectionChange(e){
+            console.log('e',e);
+            
+        },
         tableRowClassName({ row, rowIndex }) {
             console.log('tableRowClassName=====>',);
             if (row.name === "王小虎") {

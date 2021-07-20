@@ -98,6 +98,7 @@
       <router-link to="/Screenfull">Screenfull</router-link>|
       <router-link to="/Size">Size</router-link>|     
       <router-link to="/QuillEditor">QuillEditor</router-link>|
+      <router-link to="/Animate">Animate</router-link>|
     </div>
     <router-view />
   </div>

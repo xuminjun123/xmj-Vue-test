@@ -17,6 +17,10 @@ import Loading from "./utils/loading";
 // import 'cesium/Widgets/widgets.css' 
 // Vue.prototype.Cesium=Cesium;
 
+// /animate动画库
+import animated from 'animate.css' 
+Vue.use(animated)
+
 // 文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
 // require styles

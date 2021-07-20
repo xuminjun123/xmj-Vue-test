@@ -612,6 +612,16 @@ const routes = [
       import(/* webpackChunkName: "Transtion" */ "@/views/QuillEditor.vue"),
   }, 
 
+  {
+    path: "/Animate",
+    name: "Animate",
+    meta: {
+      title: "Animate",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/Animate.vue"),
+  }, 
+  
   // 全不匹配 情况下
   {
     path: "*",
