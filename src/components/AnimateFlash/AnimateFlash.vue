@@ -1,6 +1,10 @@
 <!--
  * @Description: animate_flash 插件， css库来自于 animate.css
  * @param : 
+            1、-webkit-animation动画其实有三个事件： 
+            开始事件 webkitAnimationStart 
+            结束事件 webkitAnimationEnd 
+            重复运动事件 webkitAnimationIteration 
  * @return: 
  * @Author: xmj
  * @Date: 2021-07-20 12:19:09
@@ -12,7 +16,6 @@
         :class="isAnimate ? `animate__${animateName}` : ''"
         :style="[styleObject]"
     >
-        动画
         <slot></slot>
     </div>
 </template>
@@ -92,9 +95,31 @@ export default {
     },
     created() { },
 
-    mounted() { },
+    mounted() {
+        this.animate()
+    },
 
-    methods: {},
+    methods: {
+        animate() {
+            // 动画执行完成之后
+            this.$nextTick(() => {
+                let animateRef = this.$refs.animateRef;
+                //  动画开始事件
+                animateRef.addEventListener("webkitAnimationStart", ()=>{
+                    this.$emit('start')
+                }, false);
+                // 动画过渡事件
+                animateRef.addEventListener("webkitAnimationIteration",  ()=> { 
+                    this.$emit('iteration') 
+                }, false);
+
+                // 动画结束事件
+                animateRef.addEventListener("webkitAnimationEnd",  ()=> { 
+                    this.$emit('end')
+                }, false);
+            })
+        }
+    },
 
     watch: {}
 

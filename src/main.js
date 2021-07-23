@@ -55,6 +55,10 @@ import "./assets/icons"; // icon
 import isDel from "@/utils/directive/index.js"
 Vue.use(isDel);
 
+// await-to-js 处理aysnc/await 
+import awaitToJs from "await-to-js"
+Vue.prototype.$awaitToJs = awaitToJs
+
 // 滚动插件
 import infiniteScroll from "vue-infinite-scroll";
 Vue.use(infiniteScroll);

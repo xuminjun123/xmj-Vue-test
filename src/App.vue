@@ -31,6 +31,7 @@
     <div id="nav">
       <router-link to="/index-home">Home</router-link>|
       <router-link to="/about">About</router-link>|
+      <router-link to="/rou">rou</router-link>|
       <router-link to="/dialog">el-dialog</router-link>|
       <router-link to="/Scroller">el- scrollbar</router-link>|
       <router-link to="/css">css - test</router-link>|
@@ -99,6 +100,9 @@
       <router-link to="/Size">Size</router-link>|     
       <router-link to="/QuillEditor">QuillEditor</router-link>|
       <router-link to="/Animate">Animate</router-link>|
+      <router-link to="/TableJsx">TableJsx</router-link>|
+      <router-link to="/RightClick">RightClick</router-link>|
+      <router-link to="/UpLoad">UpLoad</router-link>|
     </div>
     <router-view />
   </div>

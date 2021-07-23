@@ -7,7 +7,9 @@
 -->
 <template>
     <div>
-        <animate-flash></animate-flash>
+        <animate-flash animateName="bounce" @start="start" @end="end">
+            <p>动画</p>
+        </animate-flash>
     </div>
 </template>
 
@@ -29,7 +31,15 @@ export default {
 
     mounted() { },
 
-    methods: {},
+    methods: {
+        start(){
+            console.log('start')   
+        },
+        end(){
+            console.log('end');
+            this.$tip.success("动画结束")
+        }
+    },
 
     watch: {}
 

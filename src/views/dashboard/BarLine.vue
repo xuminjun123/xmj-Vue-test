@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { color } from 'echarts';
 const echarts = require("echarts");
 export default {
     name: '',

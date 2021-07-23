@@ -29,10 +29,13 @@ export default {
   methods: {
     async getCode() {
       await getCodeImg().then((res) => {
-        console.log('res->',res);
-        
         this.codeUrl = "data:image/gif;base64," + res.img;
       });
+
+      // const [err, res] =  await this.$awaitToJs(getCodeImg());
+      // console.log('data--->',res);
+      // this.codeUrl = "data:image/gif;base64," + res.img;
+      
     },
   },
   created() {

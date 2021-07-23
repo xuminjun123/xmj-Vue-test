@@ -31,6 +31,23 @@ export default {
       type: Object,
       required: true,
     },
+    // x轴数据
+    // ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    xAxisData: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+
+    // 分类说明
+    legend:{
+      type: Array,
+      default: () => {
+        return [];
+      },
+    }
+
   },
   data() {
     return {
@@ -63,9 +80,10 @@ export default {
       this.setOptions(this.chartData);
     },
     setOptions({ expectedData, actualData } = {}) {
+      const { xAxisData } = this;
       this.chart.setOption({
         xAxis: {
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          data: xAxisData,
           boundaryGap: false,
           axisTick: {
             show: false,
@@ -91,11 +109,11 @@ export default {
           },
         },
         legend: {
-          data: ["expected", "actual"],
+          data: ['期望', '结果'],
         },
         series: [
           {
-            name: "expected",
+            name: "期望",
             itemStyle: {
               normal: {
                 color: "#FF005A",
@@ -112,7 +130,7 @@ export default {
             animationEasing: "cubicInOut",
           },
           {
-            name: "actual",
+            name: "结果",
             smooth: true,
             type: "line",
             itemStyle: {
@@ -120,7 +138,7 @@ export default {
                 color: "#3888fa",
                 lineStyle: {
                   color: "#3888fa",
-                  width: 2,
+                  width: 1,
                 },
                 areaStyle: {
                   color: "#f3f8ff",

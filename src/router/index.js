@@ -7,14 +7,8 @@
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 
-// const originalPush = VueRouter.prototype.push
-
-// VueRouter.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch(err => err)
-// }
-
+// 重复路由跳转报错解决
 const originalPush = VueRouter.prototype.push;
 const originalReplace = VueRouter.prototype.replace;
 
@@ -31,26 +25,57 @@ VueRouter.prototype.replace = function push(location, onResolve, onReject) {
 };
 
 
+//  require.context ("路径"，是否查找子目录 ，要匹配文件的正则）
+const constantFiles = require.context('./constantModules', true, /\.js$/);
+
+let constantModules = [];
+constantFiles.keys().forEach((key) => {
+  if (key === './index.ts') return
+  constantModules = constantModules.concat(constantFiles(key).default)
+})
+
+
 const NotFound = () => import("@/views/NotFound.vue")
 Vue.use(VueRouter);
+
 const routes = [
+  ...constantModules,
+
   {
-    path: "/index-home",
-    name: "index-home",
-    component: Home,
+    path: '/rou',
+    component:
+    () =>  import(/* webpackChunkName: "about" */ "@/views/rou/index.vue"),
+    // redirect: 'noredirect',
+    name: 'rou',
     meta: {
-      title: "首页",
+      title: 'rou',
     },
+    children: [
+      {
+        path: '/Test1',
+        component: () =>
+          import(
+            /* webpackChunkName: "BarChart" */ '@/views/rou/Test1/Test1.vue'
+          ),
+        name: 'Test1',
+        meta: {
+          title: 'Test1',
+        }
+      },
+      {
+        path: '/Test2',
+        component: () =>
+          import(
+            /* webpackChunkName: "LineChart" */ '@/views/rou/Test2/Test2.vue'
+          ),
+        name: 'Test2',
+        meta: {
+          title: 'Test2',
+        }
+      },
+    ]
   },
-  {
-    path: "/about",
-    name: "About",
-    meta: {
-      title: "About",
-    },
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+
   {
     path: "/dialog",
     name: "Dialog",
@@ -316,13 +341,13 @@ const routes = [
   },
 
   {
-    path: "/Select",
-    name: "Select",
+    path: "/Word",
+    name: "Word",
     meta: {
-      title: "Select",
+      title: "Word",
     },
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Select.vue"),
+      import(/* webpackChunkName: "about" */ "../views/Word.vue"),
   },
 
   {
@@ -482,7 +507,7 @@ const routes = [
       import(/* webpackChunkName: "Process" */ "../views/Process.vue"),
   },
 
-  
+
   {
     path: "/Flex",
     name: "Flex",
@@ -600,7 +625,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "Transtion" */ "@/views/Size.vue"),
-  }, 
+  },
 
   {
     path: "/QuillEditor",
@@ -610,7 +635,7 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "Transtion" */ "@/views/QuillEditor.vue"),
-  }, 
+  },
 
   {
     path: "/Animate",
@@ -620,8 +645,38 @@ const routes = [
     },
     component: () =>
       import(/* webpackChunkName: "Transtion" */ "@/views/Animate.vue"),
-  }, 
-  
+  },
+
+  {
+    path: "/TableJsx",
+    name: "TableJsx",
+    meta: {
+      title: "TableJsx",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/TableJsx/TableJsx.vue"),
+  },
+
+  {
+    path: "/RightClick",
+    name: "RightClick",
+    meta: {
+      title: "RightClick",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/rightClick/RightClick.vue"),
+  },
+
+  {
+    path: "/UpLoad",
+    name: "UpLoad",
+    meta: {
+      title: "UpLoad",
+    },
+    component: () =>
+      import(/* webpackChunkName: "Transtion" */ "@/views/UpLoad.vue"),
+  },
+
   // 全不匹配 情况下
   {
     path: "*",
@@ -629,6 +684,7 @@ const routes = [
   }
 ];
 
+// 权限路由
 let r = [{
   path: "/AddRouterTest",
   name: "AddRouterTest",

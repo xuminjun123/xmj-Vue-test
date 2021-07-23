@@ -34,10 +34,10 @@
 
     <el-card class="box-card">
       <div class="chart-wrapper">
-        <h1 style="text-align: center">应用统计访问</h1>
+        <h1 style="text-align: center">应用统计访问 pie-chart</h1>
         <pie-chart
           class="applicationBar"
-          :seriesData="seriesData1"
+          :seriesData="seriesData3"
           :xAxisData="xAxisData1"
           :seriesName="seriesName1"
         />
@@ -49,6 +49,7 @@
         <h1 style="text-align: center">应用统计访问</h1>
         <raddar-chart
           class="applicationBar"
+          :legendData="legendData"
           :seriesData="seriesData1"
           :xAxisData="xAxisData1"
           :seriesName="seriesName1"
@@ -58,17 +59,15 @@
 
     <el-card class="box-card">
       <div class="chart-wrapper">
-       <china-chart></china-chart>
+        <china-chart></china-chart>
       </div>
     </el-card>
 
     <el-card class="box-card">
       <div class="chart-wrapper">
-      <bar-line></bar-line>
+        <bar-line></bar-line>
       </div>
     </el-card>
-
-
   </div>
 </template>
 
@@ -97,20 +96,48 @@ export default {
   data() {
     return {
       seriesName1: "访问数", // hover 显示的 seriesName
-      seriesData1: ["100", "100", "1000"],
+      seriesData1: ["100", "200", "300"],
       xAxisData1: ["sex", "name", "age"],
 
-      chartData:{
-        expectedData:"1324321",
-        actualData:"2212312"
-      }
+      chartData: {
+        expectedData: "123122",
+        actualData: "2212312"
+      },
+
+      //  pie-chart 
+      seriesData3: [
+        { value: 320, name: 'a' },
+        { value: 240, name: 'b' },
+        { value: 149, name: 'c' },
+        { value: 100, name: 'd' },
+        { value: 59, name: 'e' }
+      ],
+      legendData:[]
     };
   },
   watch: {},
-  computed: {},
-  methods: {},
-  created() {},
-  mounted() {},
+  computed: {
+    // format(){
+    //   return this.seriesData3.map((item)=>{
+    //     return this.legendData.push(item.name)
+    //   })
+    //   // console.log(' this.legendData', this.legendData);    
+    // }
+  },
+  methods: {
+    format(){
+      this.seriesData3.map((item)=>{
+        this.legendData.push(item.name)
+      })
+      this.legendData  = [...this.legendData] 
+      console.log('this.legendData' ,this.legendData);
+      
+    }
+  },
+  created() { },
+  mounted() {
+    this.format()
+  },
 };
 </script>
 <style lang="scss" scoped>
