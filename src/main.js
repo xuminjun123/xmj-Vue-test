@@ -10,11 +10,34 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import "@/core"; // 管理第三方库、全局变量
+
+// import '@/utils/flexible'  // css->rem
+
+// vxe-table 全部包
+// import 'xe-utils'
+// import VXETable from 'vxe-table'
+// import 'vxe-table/lib/style.css'
+// Vue.use(VXETable)
+
+// 给 vxe-table 实例挂载内部对象，例如：
+// Vue.prototype.$XModal = VXETable.modal
+// Vue.prototype.$XPrint = VXETable.print
+// Vue.prototype.$XSaveFile = VXETable.saveFile
+// Vue.prototype.$XReadFile = VXETable.readFile
+
 import Loading from "./utils/loading";
+import '@/permission'
+
+// G2
+import 'vue-g2'
+import '@/views/G2/registerG2Components.js'
+
+import '@/style/index.scss' // 
 
 // Cesium
-// import Cesium from 'cesium/Cesium'
+// import Cesium from 'cesium'
 // import 'cesium/Widgets/widgets.css' 
+// import 'cesium/Build/Cesium/Widgets/widgets.css'
 // Vue.prototype.Cesium=Cesium;
 
 // /animate动画库
@@ -36,6 +59,28 @@ Vue.use(VueQuillEditor, {
 });
 
 
+// 百度map 
+import BaiduMap from 'vue-baidu-map'
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: 'adMRpuTBZ6DMnFkjpfs9o83xUSSLYNTG'
+})
+
+// 高德地图
+import VueAMap from 'vue-amap';
+VueAMap.initAMapApiLoader({
+  key: 'b0297aad19e1708bab922c5b381960db',
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  // 默认高德 sdk 版本为 1.4.4
+  v: '1.4.4'
+});
+
+
+Vue.use(VueAMap);
+
+// 聊天插件
+import MChat from '@maybecode/m-chat'
+Vue.use(MChat)
 
 import $del from "@/components/Modal/Del";
 Vue.use($del);
@@ -49,11 +94,14 @@ Vue.prototype.$toast = toast;
 // Vue.prototype.$echarts = echarts;
 
 import "./assets/icons"; // icon
-// import "./permission"; // 权限管理
 
-// 自定义指令
+// 自定义指令 idel
 import isDel from "@/utils/directive/index.js"
 Vue.use(isDel);
+
+// 自定义指令 防抖
+import debounce from '@/utils/lodash/debounce2.js'
+Vue.use(debounce)
 
 // await-to-js 处理aysnc/await 
 import awaitToJs from "await-to-js"

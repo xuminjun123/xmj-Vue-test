@@ -6,6 +6,9 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
+// cesium目录映射
+const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
 
 const port = process.env.port || process.env.npm_config_port || 80 // 端口
 
@@ -43,127 +46,127 @@ module.exports = {
     },
     disableHostCheck: true,
   },
-  // configureWebpack: (config) => {
-  //   let plugins = []
-  //   if (process.env.NODE_ENV === 'production') {
-  //     plugins = [
-  //       new webpack.DefinePlugin({
-  //         CESIUM_BASE_URL: JSON.stringify('static')
-  //       }),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Workers'), to: 'static/Workers' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Assets'), to: 'static/Assets' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'ThirdParty'), to: 'static/ThirdParty' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Widgets'), to: 'static/Widgets' }])
-  //     ]
-  //   } else {
-  //     plugins = [
-  //       new webpack.DefinePlugin({
-  //         CESIUM_BASE_URL: JSON.stringify('')
-  //       }),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Workers'), to: 'Workers' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Assets'), to: 'Assets' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'ThirdParty'), to: 'ThirdParty' }]),
-  //       new CopyWebpackPlugin([{ from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' }])
-  //     ]
-  //   }
-  //   return {
-  //     module: {
-  //       unknownContextCritical: false,
-  //       rules: [
-  //         {
-  //           test: /\.js$/,
-  //           enforce: 'pre',
-  //           include: path.resolve(__dirname, 'node_modules/cesium/Source'),
-  //           sideEffects: false,
-  //           use: [
-  //             {
-  //               loader: 'strip-pragma-loader',
-  //               options: {
-  //                 pragmas: {
-  //                   debug: false
-  //                 }
-  //               }
-  //             }
-  //           ]
-  //         }
-  //       ]
+  // configureWebpack: {
+  //   // name: name,
+  //   externals: {
+  //     //   vue: 'Vue',
+  //     //   'vue-router': 'VueRouter',
+  //     //   vuex: 'vue',
+  //     //   'element-ui': 'ELEMENT'
+  //   },
+  //   resolve: {
+  //     alias: {
+  //       "~": resolve("public"),
+  //       "@": resolve("src"),
+  //       // 'cesium': path.resolve(__dirname, '../node_modules/cesium/Source')
   //     },
-  //     optimization: {
-  //       usedExports: true,
-  //       splitChunks: {
-  //         maxInitialRequests: Infinity,
-  //         minSize: 0,
-  //         maxSize: 250000,
-  //         cacheGroups: {
-  //           vendor: {
-  //             test: /[\\/]node_modules[\\/]/,
-  //             priority: -10,
-  //             chunks: 'all',
-  //             name(module) {
-  //               const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-  //               return `npm.${packageName.replace('@', '')}`
-  //             }
-  //           },
-  //           commons: {
-  //             name: 'Cesium',
-  //             test: /[\\/]node_modules[\\/]cesium/,
-  //             priority: 10,
-  //             chunks: 'all'
-  //           }
-  //         }
-  //       }
-  //     },
-  //     output: {
-  //       sourcePrefix: ' '
-  //     },
-  //     amd: {
-  //       toUrlUndefined: true
-  //     },
-  //     resolve: {
-  //       alias: {
-  //         '@': path.resolve('src')
-  //       }
-  //     },
-  //     node: {
-  //       fs: 'empty',
-  //       Buffer: false,
-  //       http: 'empty',
-  //       https: 'empty',
-  //       zlib: 'empty'
-  //     },
-  //     plugins: plugins
+  //   },
+
+  //   amd: {
+  //     // cesium 2
+  //     toUrlUndefined: true
+  //   },
+  //   module: {
+  //     // cesium 3 不加这个配置会报require引入警告
+  //     unknownContextCritical: false
+  //   },
+
+  //   // cesium 4
+  //   plugins: [
+  //     new CopyWebpackPlugin([
+  //       { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+  //       { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+  //       { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+  //       { from: path.join(cesiumSource, 'ThirdParty/Workers'), to: 'ThirdParty/Workers' }
+  //     ]),
+  //     new webpack.DefinePlugin({
+  //       CESIUM_BASE_URL: JSON.stringify('./')
+  //     })
+  //   ],
+  //   module: {
+  //     unknownContextCritical: false
   //   }
   // },
 
   configureWebpack: {
-    // name: name,
-    externals: {
-      //   vue: 'Vue',
-      //   'vue-router': 'VueRouter',
-      //   vuex: 'vue',
-      //   'element-ui': 'ELEMENT'
-    },
     resolve: {
       alias: {
         "~": resolve("public"),
         "@": resolve("src"),
-        cesium: path.resolve(__dirname, '../node_modules/cesium/Source')
+        // 'cesium': path.resolve(__dirname, '../node_modules/cesium/Source')
       },
+    },
+    amd: {
+      // cesium 2
+      toUrlUndefined: true
+    },
+    module: {
+      // cesium 3 不加这个配置会报require引入警告
+      unknownContextCritical: false
     },
 
     plugins: [
-      // Copy Cesium Assets, Widgets, and Workers to a static directory
-      new CopyWebpackPlugin([{ from: path.join('node_modules/cesium/Source', '../Build/Cesium/Workers'), to: 'Workers' }]),
-      new CopyWebpackPlugin([{ from: path.join('node_modules/cesium/Source', 'Assets'), to: 'Assets' }]),
-      new CopyWebpackPlugin([{ from: path.join('node_modules/cesium/Source', 'Widgets'), to: 'Widgets' }]),
+      new CopyWebpackPlugin([
+        {
+          from: 'node_modules/cesium/Build/Cesium/Workers',
+          to: 'cesium/Workers'
+        }
+      ]),
+      new CopyWebpackPlugin([
+        {
+          from: 'node_modules/cesium/Build/Cesium/ThirdParty',
+          to: 'cesium/ThirdParty'
+        }
+      ]),
+      new CopyWebpackPlugin([
+        { from: 'node_modules/cesium/Build/Cesium/Assets', to: 'cesium/Assets' }
+      ]),
+      new CopyWebpackPlugin([
+        {
+          from: 'node_modules/cesium/Build/Cesium/Widgets',
+          to: 'cesium/Widgets'
+        }
+      ]),
       new webpack.DefinePlugin({
         // Define relative base path in cesium for loading assets
-        CESIUM_BASE_URL: JSON.stringify('')
+        CESIUM_BASE_URL: JSON.stringify('./')
       })
     ],
-
+    module: {
+      unknownContextCritical: false
+    }
   },
+  // configureWebpack: config => {
+
+  //   const plugins = [
+  //     /* cesium */
+  //     new CopyWebpackPlugin([
+  //       { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+  //       { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+  //       { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+  //       { from: path.join(cesiumSource, 'ThirdParty/Workers'), to: 'ThirdParty/Workers' }
+  //     ]),
+  //     new webpack.DefinePlugin({
+  //       CESIUM_BASE_URL: JSON.stringify('./cesium')
+  //     })
+  //   ]
+
+  //   return {
+  //     plugins: plugins,
+  //     resolve: {
+  //       alias: {
+  //         "~": resolve("public"),
+  //         "@": resolve("src"),
+  //         // 'cesium': path.resolve(__dirname, '../node_modules/cesium/Source')
+  //       },
+  //     },
+  //   }
+
+  // },
+
   chainWebpack(config) {
+    // config.resolve.alias.set("cesium", resolve(cesiumSource))
+
     config.plugins.delete("preload"); // TODO: need test
     config.plugins.delete("prefetch"); // TODO: need test
 

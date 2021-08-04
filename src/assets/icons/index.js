@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @param : 
+ * @return: 
+ * @Author: xmj
+ * @Date: 2021-06-11 10:06:48
+ */
 import Vue from 'vue'
 import SvgIcon from '@/components/SvgIcon'// svg component
 
@@ -5,7 +12,7 @@ import SvgIcon from '@/components/SvgIcon'// svg component
 Vue.component('svg-icon', SvgIcon)
 
 const req = require.context('./svg', false, /\.svg$/)
-console.log('req=>',req.keys());
+
 
 const requireAll = requireContext => requireContext.keys().map(requireContext)
 requireAll(req)

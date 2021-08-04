@@ -6,24 +6,13 @@
  * @Date: 2021-07-23 09:56:26
  */
 
+// 登录
 const UserManagerRouter = [
     {
-        path: "/index-home",
-        name: "index-home",
+        path: '/login',
+        name: 'login',
         component: () =>
-            import(/* webpackChunkName: "about" */ "@/views/Home.vue"),
-        meta: {
-            title: "首页",
-        },
-    },
-    {
-        path: "/about",
-        name: "About",
-        meta: {
-            title: "About",
-        },
-        component: () =>
-            import(/* webpackChunkName: "about" */ "@/views/About.vue"),
+             import(/* webpackChunkName: "login" */ "@/views/Login/index.vue"),
     },
 ]
 export default UserManagerRouter

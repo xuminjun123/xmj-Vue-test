@@ -1,4 +1,4 @@
-/**
+/** 判断是否是 http
  * @param {string} path
  * @returns {Boolean}
  */

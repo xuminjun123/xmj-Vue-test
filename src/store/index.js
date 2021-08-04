@@ -1,80 +1,33 @@
-/*
- * @Description: sidebar - Size
- * @param : 
- * @return: 
- * @Author: xmj
- * @Date: 2021-05-28 09:51:54
- */
-import Vue from "vue";
-import Vuex from "vuex";
-// vuex 日志插件
-import { createLogger } from "vuex"   
-import Cookies from 'js-cookie'
-Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default new Vuex.Store({
-  state: { 
-    collapse: false, 
-    count:0,
-    isLogin:false,
-    id:1,
+import { store as permission, } from '@/store/modules/permission'
+import { store as user } from '@/store/modules/user'
+import { createLogger } from 'vuex'
+ // vuex 持久化插件
+import createPersistedState from "vuex-persistedstate"
 
-    size: Cookies.get('size') || 'medium'
-  },
-  getters: {
-    collapsed: state => state.collapse,
-    count: state => state.count,
-    isLogin:  state => state.isLogin,
-    id:  state => state.id,
-  },
-  mutations: {
-    SET_COLLAPSE: (state, isCollapse) => {
-      state.collapse = isCollapse;
-    },
-    setCount:(state, count)=>{
-      state.count = count;
-    },
-    setIsLogin:(state, isLogin)=>{
-      state.isLogin = isLogin;
-    },
-    // payload
-    setId:(state, payload )=>{
-      state.id = payload.id;
-    },
+Vue.use(Vuex)
 
-    SET_SIZE: (state, size) => {
-      state.size = size
-      Cookies.set('size', size)
-    }
-  },
-  actions: {
-    commitCollapse({ commit }, collapse) {
-      commit("SET_COLLAPSE", collapse);
-    },
-    commitCount({ commit }, count) {
-      commit("setCount", count);
-    },
-    commitIsLogin({ commit }) {
-      return new Promise((resolve, reject) => {
-       setTimeout(()=>{
-         // 2秒之后登录
-        commit("setIsLogin", true);
-       },2000)
-        resolve("登录成功")
-      })
-    },
-    commitId({ commit },id) {
-      commit("setId", id);
-    },
+const debug = process.env.NODE_ENV !== 'production'
+const plugins = debug ? [createLogger({})] : []
+// Plug in session storage based persistence 插入基于会话存储的持久性
+plugins.push(createPersistedState({ storage: window.sessionStorage }))
 
-    setSize({ commit }, size) {
-      commit('SET_SIZE', size)
-    }
-  },
-  modules: {},
+export const store = new Vuex.Store({
+    modules: {
+        //   app,
+        user,
+        //   tagsView,
+        permission,
+        //   settings
+    },
+    // getters
+    plugins
+})
 
-  strict: debug, // 使用严格模式 ，只能在multation下修改state
-  plugins: debug ? [ createLogger() ] : []
-});
+
+export function useStore() {
+  return store 
+}

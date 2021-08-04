@@ -44,7 +44,6 @@ export default {
   },
   methods: {
     handleSetSize(size) {
-      console.log('seze------', size);
 
       this.$ELEMENT.size = size
       this.$store.dispatch('setSize', size)
@@ -59,8 +58,6 @@ export default {
       // this.$store.dispatch('tagsView/delAllCachedViews', this.$route)
 
       const { fullPath } = this.$route
-      console.log('fullPath' ,fullPath);
-      
 
       // 这里 点击重复路由会报错 ，router需要处理
       this.$nextTick(() => {

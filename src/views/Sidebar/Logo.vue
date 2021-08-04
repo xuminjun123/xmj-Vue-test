@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import logoImg from '@/assets/image/magvii_logo.png'
+// import logoImg from '@/assets/image/magvii_logo.png'
 
 export default {
   name: 'SidebarLogo',
