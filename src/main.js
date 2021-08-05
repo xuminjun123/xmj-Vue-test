@@ -35,10 +35,11 @@ import '@/views/G2/registerG2Components.js'
 import '@/style/index.scss' // 
 
 // Cesium
-// import Cesium from 'cesium'
+import Cesium from 'cesium'
+// Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwZTMyOTYxOS1mNWM5LTQwMTQtYWIyNS02OGYzMjczZmVjNzgiLCJpZCI6NjMzMTgsImlhdCI6MTYyODA1NDM0MH0.Z1UrupVAQoHK1VhNyggncX-QXiRlPmbZhOI2JLj9lR0'
 // import 'cesium/Widgets/widgets.css' 
 // import 'cesium/Build/Cesium/Widgets/widgets.css'
-// Vue.prototype.Cesium=Cesium;
+Vue.prototype.Cesium=Cesium;
 
 // /animate动画库
 import animated from 'animate.css' 
