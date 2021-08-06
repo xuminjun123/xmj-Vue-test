@@ -15,7 +15,7 @@ const chartsRouter  = [
     redirect: 'noredirect',
     name: 'Charts',
     meta: {
-      title: '地图cahrts',
+      title: '地图charts',
       // icon: '#iconchart1'
     },
     children: [

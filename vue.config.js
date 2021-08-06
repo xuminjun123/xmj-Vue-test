@@ -2,6 +2,18 @@
 const webpack = require("webpack");
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+
+const productionGzipExtensions = [
+  "js",
+  "css",
+  "svg",
+  "woff",
+  "ttf",
+  "json",
+  "html"
+];
+
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
@@ -106,6 +118,15 @@ module.exports = {
     },
 
     plugins: [
+      //开启gzip压缩
+      new CompressionWebpackPlugin({
+        filename: "[path].gz[query]",
+        test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),  // pp文件名
+        threshold: 10240,   // 对于 超过10K的数据进行压缩
+        minRatio: 0.8, //压缩率大于0.8的才压缩
+        deleteOriginalAssets: false //是否删除原文件
+      }),
+
       new CopyWebpackPlugin([
         {
           from: 'node_modules/cesium/Build/Cesium/Workers',

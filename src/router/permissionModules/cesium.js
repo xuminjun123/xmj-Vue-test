@@ -22,7 +22,7 @@ const cesiumRouter = [
                 path: "cesiumTest",
                 name: "cesiumTest",
                 meta: {
-                    title: "三维地球",
+                    title: "cesium",
                 },
                 component: () =>
                     import(/* webpackChunkName: "cesium" */ "@/views/Cesium/index.vue"),

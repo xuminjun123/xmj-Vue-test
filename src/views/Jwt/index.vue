@@ -5,6 +5,8 @@
 -->
 <template>
     <div class="wrapper">
+        <h1>JWT</h1>
+        <p>{{token}}</p> 
         <el-form ref="form" :model="sizeForm" label-width="80px" size="mini">
             <el-form-item label="用户名">
                 <el-input v-model="sizeForm.username"></el-input>
@@ -27,9 +29,10 @@ export default {
     props: {},
     data() {
         return {
+            token: null,
             sizeForm: {
-                username: "",
-                password: "",
+                username: "admin",
+                password: "123456",
             },
         };
     },
@@ -41,7 +44,7 @@ export default {
             console.log("submit!", username, password);
             getJwt(this.sizeForm).then((res) => {
                 console.log('res=====》', res.token);
-
+                this.token = res.token
             });
         },
     },

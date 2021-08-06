@@ -26,3 +26,4 @@ export function getJwt(data) {
     params:data
   });
 }
+

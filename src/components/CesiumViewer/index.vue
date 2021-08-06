@@ -4,7 +4,7 @@
  * @Autor: lqc
  * @Date: 2020-05-28 15:36:25
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-08-04 15:05:33
+ * @LastEditTime: 2021-08-06 09:55:25
  * @FilePath: \cesiumVueClean\src\components\CesiumViewer\index.vue
 -->
 <template>
@@ -37,14 +37,16 @@ export default {
         infoBox: false,                 // 点击显示窗口控件
         selectionIndicator: false,      // 实体对象选择框控件
         scene3DOnly: true,               // 仅3D渲染，节省GPU内存
-        googleMapProvider: googleMapProvider
+        googleMapProvider: googleMapProvider,
       })
+      // 隐藏下方Cesium logo
       viewer._cesiumWidget._creditContainer.style.display = 'none'
       viewer.scene.globe.showGroundAtmosphere = false
 
       let googleMapProvider = new UrlTemplateImageryProvider({
         url: 'http://mt1.google.cn/vt/lyrs=s&hl=zh-CN&x={x}&y={y}&z={z}&s=Gali'
       })
+
     },
     // 添加 `Imagery` (图层)
     addLayers() {
@@ -52,7 +54,19 @@ export default {
       // this.$viewer.imageryLayers.remove(this.$viewer.imageryLayers.get(0));
 
       // Add grid imagery
-      this.$viewer.imageryLayers.addImageryProvider(new Cesium.GridImageryProvider());
+      // this.$viewer.imageryLayers.addImageryProvider(new Cesium.GridImageryProvider());
+      // this.$viewer.imageryLayers.addImageryProvider(
+      //   new Cesium.WebMapTileServiceImageryProvider({
+      //     url: "http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg" + "&tk=" + "19b72f6cde5c8b49cf21ea2bb4c5b21e",
+      //     layer: "tdtAnnoLayer",
+      //     style: "default",
+      //     maximumLevel: 18, //天地图的最大缩放级别
+      //     format: "image/jpeg",
+      //     tileMatrixSetID: "GoogleMapsCompatible",
+      //     show: false,
+      //   })
+      // )
+
     },
   }
 }

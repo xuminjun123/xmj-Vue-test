@@ -13,7 +13,7 @@
             :messages="messages"
             @submit="submit"
             :loadMore="loadMore"
-            height="100vh"
+            height="80vh"
         ></m-chat>
     </div>
 </template>
@@ -44,6 +44,9 @@ export default {
 }
 
 </script>
-<style lang='' scoped>
-
+<style lang='scss' scoped>
+.wrapper {
+    width: 300px;
+    height: 800px;
+}
 </style>

@@ -34,6 +34,15 @@ import '@/views/G2/registerG2Components.js'
 
 import '@/style/index.scss' // 
 
+
+/** 大转盘/九宫格 插件 */
+import LuckDraw from 'vue-luck-draw'
+Vue.use(LuckDraw)
+// 按需引入
+// import { LuckyWheel, LuckyGrid } from 'vue-luck-draw'
+// Vue.components('LuckyWheel', LuckyWheel)
+// Vue.components('LuckyGrid', LuckyGrid)
+
 // Cesium
 import Cesium from 'cesium'
 // Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwZTMyOTYxOS1mNWM5LTQwMTQtYWIyNS02OGYzMjczZmVjNzgiLCJpZCI6NjMzMTgsImlhdCI6MTYyODA1NDM0MH0.Z1UrupVAQoHK1VhNyggncX-QXiRlPmbZhOI2JLj9lR0'
