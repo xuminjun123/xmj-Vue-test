@@ -25,7 +25,16 @@ const downloadRouter = [
                     title: "fileSaver",
                 },
                 component: () =>
-                    import(/* webpackChunkName: "Transtion" */ "@/views/Download/index.vue"),
+                    import(/* webpackChunkName: "fileSaver" */ "@/views/Download/index.vue"),
+            },
+            {
+                path: "exportXlsx",
+                name: "exportXlsx",
+                meta: {
+                    title: "导出Xlsx",
+                },
+                component: () =>
+                    import(/* webpackChunkName: "exportXlsx" */ "@/views/Download/exportXlsx.vue"),
             },
         ]
     }

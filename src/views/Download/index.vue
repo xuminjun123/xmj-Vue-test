@@ -103,7 +103,9 @@ export default {
         },
 
         handleDownByData() {
-            downloadByData(this.tableData, 'testName.txt');
+            this.$tip.error("没实现")
+            // let table =  document.querySelector(".table")
+            // downloadByData(this.tableData, 'testName.csv');
         }
     },
 
