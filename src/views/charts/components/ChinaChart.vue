@@ -4,15 +4,17 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:27:22
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-07-30 19:06:57
+ * @LastEditTime: 2021-08-09 15:30:49
 -->
 <template>
   <div class="hello">
-    <div @click="mapClick" ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+    <el-alert title="双击跳到省市" type="success"  effect="dark" :closable="false" style="margin-bottom:20px"></el-alert>
+
+    <div @dblclick="mapClick" ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
     <!-- 初始化echarts需要有个宽高的盒子 -->
   </div>
 </template>
-
+ 
 <script>
 // import echarts from 'echarts'
 // import 'echarts/map/js/china.js'
@@ -43,7 +45,7 @@ const option = {
       // 地图区域样式
       areaColor: '#eee'
     },
-    roam: true,
+    roam: false,  // 禁止 鼠标滚动
     // 鼠标滚轮效果
     zoom: 1.2,
     // 地图放大缩小
@@ -117,10 +119,11 @@ export default {
   methods: {
     mapClick(el) {
       console.log('chinaChild');
-      
+
       // 中文省市名 ，这么需要解决浏览器中文乱码问题
+      // encodeURIComponent() 函数编码的 URI 进行解码。
       this.mycharts.on("click", (params) => {
-        let name = params.name
+        let name = encodeURIComponent(params.name)
         this.$router.push({
           name: "cityChartDemo",
           query: {
@@ -128,7 +131,7 @@ export default {
           }
         })
       }, false)
-  
+
     }
   }
 }

@@ -15,23 +15,21 @@
 </template>
 
 <script>
-
 export default {
     name: 'light',
     components: {},
     props: {},
     data() {
         return {
-
+            name: null
         };
     },
 
-
     computed: {},
-
     created() { },
-
-    mounted() { },
+    mounted() { 
+      
+    },
 
     methods: {},
 

@@ -12,7 +12,13 @@
                 <div>
                     <el-button @click="download" type="primary">下载图片</el-button>
                 </div>
-                <el-image :src="src" style="width: 300px; height: auto" class="picture" :fit="fit"></el-image>
+                <el-image
+                    :src="src"
+                    :preview-src-list="srcList"
+                    style="width: 300px; height: auto"
+                    class="picture"
+                    :fit="fit"
+                ></el-image>
             </el-col>
             <el-col :span="16">
                 <div class="grid-content bg-purple-light"></div>
@@ -63,7 +69,11 @@ export default {
                 date: '2016-05-03',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
-            }]
+            }],
+            srcList: [
+                'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
+                'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
+            ]
         };
     },
 

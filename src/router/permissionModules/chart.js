@@ -78,7 +78,7 @@ const chartsRouter  = [
         name: 'chinaChartDemo',
         meta: {
           title: '中国地图',
-          noCache: true
+          noCache: true,
         }
       }, 
       { 
