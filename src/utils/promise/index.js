@@ -1,11 +1,4 @@
 /*
- * @Description: promise - test 
- * @param : 
- * @return: 
- * @Author: xmj
- * @Date: 2021-07-12 17:35:37
- */
-/*
  * @Description: promise 面试题
  * @param : 
  * @return: 

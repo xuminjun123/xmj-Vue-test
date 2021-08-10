@@ -4,13 +4,19 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:27:22
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-08-09 15:30:49
+ * @LastEditTime: 2021-08-10 15:04:01
 -->
 <template>
   <div class="hello">
-    <el-alert title="双击跳到省市" type="success"  effect="dark" :closable="false" style="margin-bottom:20px"></el-alert>
+    <el-alert
+      title="双击跳到省市"
+      type="success"
+      effect="dark"
+      :closable="false"
+      style="margin-bottom:20px"
+    ></el-alert>
 
-    <div @dblclick="mapClick" ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+    <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
     <!-- 初始化echarts需要有个宽高的盒子 -->
   </div>
 </template>
@@ -104,7 +110,7 @@ const option = {
 }
 
 export default {
-  name: 'HelloWorld',
+  name: 'chinaChart',
   data() {
     return {
       mycharts: null
@@ -114,12 +120,12 @@ export default {
     // this.getData()
     this.mycharts = echarts.init(this.$refs.mapbox)
     // 初始化echarts
-    this.mycharts.setOption(option)
+    this.mycharts.setOption(option);
+
+    this.handler()
   },
   methods: {
-    mapClick(el) {
-      console.log('chinaChild');
-
+    handler() {
       // 中文省市名 ，这么需要解决浏览器中文乱码问题
       // encodeURIComponent() 函数编码的 URI 进行解码。
       this.mycharts.on("click", (params) => {
@@ -131,13 +137,11 @@ export default {
           }
         })
       }, false)
-
-    }
+    },
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
 h1,
 h2 {

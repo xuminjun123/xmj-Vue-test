@@ -1,26 +1,36 @@
-
+<!--
+ * @Description: 县级 chart
+ * @param : 
+ * @return: 
+ * @Author: xmj
+ * @Date: 2021-08-10 14:57:55
+-->
 <template>
-    <div class="hello">
-        <el-button @click="back">返回中国地图</el-button>
-        <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
-        <!-- 初始化echarts需要有个宽高的盒子 -->
+    <div>
+        <h1>县级 chart</h1>
+        <div>
+            <el-button @click="back">返回省市地图</el-button>
+            <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+        </div>
     </div>
 </template>
-  
-<script>
-const cityModules = require.context('@/utils/echarts/js', true, /\.js$/)
-let cityNames = [];
-cityModules.keys().forEach((key) => {
-    console.log('key', key);
-    cityNames = cityNames.concat(cityModules(key).default)
-})
 
+<script>
+import Axios from "axios";
+import CountyMap from "@/utils/echarts/json/citys/china-main-city-map";
 const echarts = require("echarts");
+// import json from "@/utils/echarts/json/citys/110100.json"
+// const cityModules = require.context('@/utils/echarts/json/citys', true, /\.json$/)
+// let cityNames = [];
+// cityModules.keys().forEach((key) => {
+//     console.log('key', key);
+//     cityNames = cityNames.concat(cityModules(key).default)
+// })
 
 const option = {
     title: {
         // 标题内容
-        text: '省市疫情图',
+        text: '县级疫情图',
         link: 'https://baidu.com',
         subtext: '123456',
         sublink: 'https://baidu.com'
@@ -29,7 +39,7 @@ const option = {
         name: '确诊人数',
         type: 'map',
         // 告诉echarts渲染一个地图
-        map: "安徽",
+        // map: "110100",
         // 告诉echarts渲染中国地图
         label: {
             // 设置地区汉字
@@ -97,62 +107,62 @@ const option = {
             saveAsImage: {}
         }
     }
-}
+};
 
 export default {
-    name: 'cityChart',
+    name: 'countyCharts',
+    components: {},
+    props: {},
     data() {
         return {
             mycharts: null
-        }
+        };
     },
-    mounted() {
-        this.$nextTick(() => {
-            let name = decodeURIComponent(this.$route.query.name);  // url 解码
-            option.series[0].map = name
-        })
 
+
+    computed: {},
+
+    created() { },
+
+    mounted() {
         this.mycharts = echarts.init(this.$refs.mapbox)
-        // 初始化echarts
-        this.mycharts.setOption(option);
+        // echarts.registerMap("110100", json);
+        // option.series[0].mapType = "110100";
+
+        // this.mycharts.setOption(option);
         this.handler()
     },
+
     methods: {
-        handler() {
-            this.mycharts.on("click", (params) => {
-                console.log('params', params.name);
-                this.$router.push({
-                    name: 'contyChartDemo',
-                    query: {
-                        name: params.name
-                    }
-                })
+        back() {
+            this.$router.push({
+                name: 'cityChartDemo'
             })
         },
 
-        back() {
-            this.$router.push({
-                name: 'chinaChartDemo'
-            })
+        async handler() {
+            let name = this.$route.query.name;
+            let code = CountyMap[name];
+            console.log('code', name, code);
+
+            let mapJson = await Axios.get(
+                `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/citys/${code}.json`
+            );
+            console.log('--->', mapJson.data);
+
+            echarts.registerMap(code, mapJson.data);
+            option.series[0].mapType = code;
+            this.mycharts.setOption(option);
+            // chart.off("mapselectchanged", this.onCityClick);
+            // this.chart.hideLoading();
         }
-    }
+    },
+
+    watch: {}
+
 }
+
 </script>
-  
-<style lang='scss' scoped>
-h1,
-h2 {
-    font-weight: normal;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-a {
-    color: #42b983;
-}
+<style lang='' scoped>
+
 </style>

@@ -1,5 +1,5 @@
 # my-route
-
+rimraf node_modules
 ## Project setup
 ```
 yarn install

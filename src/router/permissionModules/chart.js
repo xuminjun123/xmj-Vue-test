@@ -8,7 +8,7 @@
 
 import Layout from '@/layout/index.vue'
 
-const chartsRouter  = [
+const chartsRouter = [
   {
     path: '/charts',
     component: Layout,
@@ -69,7 +69,7 @@ const chartsRouter  = [
           noCache: true
         }
       },
-      { 
+      {
         path: 'china-chart',
         component: () =>
           import(
@@ -80,8 +80,8 @@ const chartsRouter  = [
           title: '中国地图',
           noCache: true,
         }
-      }, 
-      { 
+      },
+      {
         path: 'city-chart',
         component: () =>
           import(
@@ -92,7 +92,21 @@ const chartsRouter  = [
           title: '省市地图',
           noCache: true
         }
-      }, 
+      },
+     
+      {
+        path: 'county-chart',
+        component: () =>
+          import(
+            /* webpackChunkName: "MixedChat" */ '@/views/charts/CountyChartDemo.vue'
+          ),
+        name: 'contyChartDemo',
+        meta: {
+          title: '县区地图',
+          noCache: true
+        }
+      },
+      
       {
         path: 'raddar-chart',
         component: () =>
@@ -104,7 +118,7 @@ const chartsRouter  = [
           title: 'RaddarChartDemo',
           noCache: true
         }
-      } 
+      }
     ]
   }
 ]

@@ -105,6 +105,9 @@ Vue.prototype.$toast = toast;
 
 import "./assets/icons"; // icon
 
+// 引入 loading 自定义指令
+import loadingDirective from '@/utils/directive/loading.js'
+Vue.directive('myloading', loadingDirective)
 // 自定义指令 idel
 import isDel from "@/utils/directive/index.js"
 Vue.use(isDel);
@@ -120,6 +123,10 @@ Vue.prototype.$awaitToJs = awaitToJs
 // 滚动插件
 import infiniteScroll from "vue-infinite-scroll";
 Vue.use(infiniteScroll);
+
+// 粒子特效
+// import VueParticles from 'vue-particles'  
+// Vue.use(VueParticles)  
 
 import Tip from "./utils/tip";
 Vue.prototype.$tip = Tip;
