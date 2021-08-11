@@ -7,6 +7,13 @@
 -->
 <template>
     <div class="wrapper">
+        <div class="svgStyle">
+            <svg-icon iconClass="zip"  :styleObject="styleObject"></svg-icon>
+        </div>
+
+        <div class="svgStyle">
+            <svg-icon iconClass="ticket"  :styleObject="styleObject"></svg-icon>
+        </div>
         <ul>
             <li>1</li>
             <li>2</li>
@@ -83,7 +90,13 @@ export default {
     components: {},
     props: {},
     data() {
-        return {};
+        return {
+            styleObject:{
+                width :"50px",
+                height: "50px",
+                color: "#f40"
+            }
+        };
     },
     watch: {},
     computed: {},
@@ -103,4 +116,12 @@ export default {
     },
 };
 </script>
-  
+<style lang="scss" scoped>
+.wrapper{
+    .svgStyle {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+    }
+}
+</style>  
