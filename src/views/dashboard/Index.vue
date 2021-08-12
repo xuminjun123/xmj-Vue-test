@@ -6,9 +6,15 @@
  * @Date: 2021-07-26 11:45:58
 -->
 <template>
-  <div>
-    dashboard 页面
-    {{ routes }}
+  <div class="wrapper">
+    <div>
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>WorkBench</span>
+        </div>
+        <svg-icon iconClass="illustration" :styleObject="styleObject"></svg-icon>
+      </el-card>
+    </div>
   </div>
 </template>
 
@@ -22,14 +28,17 @@ export default {
   data() {
     return {
       store: useStore(),
-      routes: []
+      routes: [],
+      styleObject: {
+
+      }
     };
   },
 
   computed: {},
-  created() { this.rout()},
+  created() { this.rout() },
   mounted() {
-    
+
   },
 
   methods: {
@@ -46,6 +55,10 @@ export default {
 }
 
 </script>
-<style lang='' scoped>
-
+<style lang='scss' scoped>
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 </style>
