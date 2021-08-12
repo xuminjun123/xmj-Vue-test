@@ -2,7 +2,7 @@
 <template>
     <div class="hello">
         <el-button @click="back">返回中国地图</el-button>
-        <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+        <div ref="mapbox" style="width:600px;height:500px;margin:0 auto" v-loading="loading"></div>
         <!-- 初始化echarts需要有个宽高的盒子 -->
     </div>
 </template>
@@ -103,6 +103,7 @@ export default {
     name: 'cityChart',
     data() {
         return {
+            loading: true,
             mycharts: null
         }
     },
@@ -115,6 +116,7 @@ export default {
         this.mycharts = echarts.init(this.$refs.mapbox)
         // 初始化echarts
         this.mycharts.setOption(option);
+        this.loading = false
         this.handler()
     },
     methods: {

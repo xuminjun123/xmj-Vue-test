@@ -24,6 +24,7 @@
                 <div class="grid-content bg-purple-light"></div>
                 <div>
                     <el-button @click="exportExcel" type="primary">导出表格</el-button>
+                    <el-button @click="printExcel" type="primary">打印表格</el-button>
                 </div>
                 <el-table :data="tableData" style="width: 100%" class="table">
                     <el-table-column prop="date" label="日期" width="180"></el-table-column>
@@ -41,6 +42,8 @@
 </template>
 
 <script>
+import printJS from 'print-js';
+
 import { downloadByData } from "@/utils/download"
 import domtoimage from "dom-to-image";
 import { saveAs } from "file-saver";
@@ -111,7 +114,13 @@ export default {
         exportExcel() {
 
         },
-
+        printExcel() {
+            printJS({
+                printable:this.tableData,
+                properties:['date','name','address'],
+                type: 'json'
+            });
+        },
         handleDownByData() {
             this.$tip.error("没实现")
             // let table =  document.querySelector(".table")

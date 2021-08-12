@@ -4,19 +4,19 @@
  * @Author: ZY
  * @Date: 2021-01-08 19:27:22
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-08-10 15:04:01
+ * @LastEditTime: 2021-08-12 10:32:08
 -->
 <template>
   <div class="hello">
     <el-alert
-      title="双击跳到省市"
+      title="单击跳到省市"
       type="success"
       effect="dark"
       :closable="false"
-      style="margin-bottom:20px"
+      style="margin-bottom:10px"
     ></el-alert>
 
-    <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+    <div ref="mapbox" style="width:600px;height:500px;margin:0 auto"></div>
     <!-- 初始化echarts需要有个宽高的盒子 -->
   </div>
 </template>

@@ -3,14 +3,17 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-07-30 11:04:07
+ * @LastEditTime: 2021-08-12 10:21:03
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="classObj.mobile && sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <Sidebar class="sidebar-container" />
     <div class="main-container hasTagsView">
-      <div class="fixed-header"></div>
+      <div class="fixed-header">
+        <navbar />
+      </div>
+
       <AppMain />
     </div>
   </div>
@@ -20,7 +23,8 @@
 // import { useStore } from '@/store'
 import {
   AppMain,
-  Sidebar
+  Sidebar,
+  Navbar
 } from './components'
 
 export default {
@@ -28,6 +32,7 @@ export default {
   components: {
     AppMain,
     Sidebar,
+    Navbar
   },
   data() {
     return {
@@ -104,6 +109,7 @@ export default {
   top: 0;
   right: 0;
   z-index: 9;
+  border: 1px solid #333;
   // width: calc(100% - #{$sideBarWidth});
   width: calc(100% - 300px);
   transition: width 0.28s;

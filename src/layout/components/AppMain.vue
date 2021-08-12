@@ -6,7 +6,6 @@
  * @Date: 2021-03-09 15:44:19
 -->
 <template>
-  <el-main>
     <section class="app-main">
       <transition name="fade-transform" mode="out-in">
         <!-- <keep-alive :include="cachedViews"> -->
@@ -16,7 +15,6 @@
         <!-- </keep-alive> -->
       </transition>
     </section>
-  </el-main>
 </template>
 
 <script>

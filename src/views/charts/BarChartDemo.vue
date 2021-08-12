@@ -7,7 +7,7 @@
   <div class="chart-container">
     <h1 style="text-align: center">BarChart</h1>
       <BarChart
-        height="100%"
+        height="90%"
         width="80%"
         :seriesData="seriesData1"
         :xAxisData="xAxisData1"

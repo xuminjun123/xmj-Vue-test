@@ -10,7 +10,7 @@
         <h1>县级 chart</h1>
         <div>
             <el-button @click="back">返回省市地图</el-button>
-            <div ref="mapbox" style="width:800px;height:600px;margin:0 auto"></div>
+            <div v-loading="loading" ref="mapbox" style="width:500px;height:400px;margin:0 auto"></div>
         </div>
     </div>
 </template>
@@ -115,6 +115,7 @@ export default {
     props: {},
     data() {
         return {
+            loading: true,
             mycharts: null
         };
     },
@@ -149,7 +150,7 @@ export default {
                 `https://raw.githubusercontent.com/huanent/vue-echarts-map-demo/master/map/citys/${code}.json`
             );
             console.log('--->', mapJson.data);
-
+            this.loading= false
             echarts.registerMap(code, mapJson.data);
             option.series[0].mapType = code;
             this.mycharts.setOption(option);
