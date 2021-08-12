@@ -118,7 +118,7 @@ export default {
         },
         onEsc() {
             console.log('esc');
-            this.$tip.info('点击了取消')
+            this.$tip.info('您点击了取消!')
         },
         init() {
             // // enter search 回车键

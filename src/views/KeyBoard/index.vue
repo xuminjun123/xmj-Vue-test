@@ -47,7 +47,9 @@ export default {
     mounted() { },
 
     methods: {
-        tab(){},
+        tab(){
+            this.visible = true
+        },
         handleSubmit(){},
         cancel(){
 
