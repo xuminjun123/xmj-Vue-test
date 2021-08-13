@@ -1,4 +1,5 @@
 <!--
+  这 使用的 百度mapv2.0版本 (目前已经有点落后了)
  * @Description: vue Baidu Map 
     - https://dafrok.github.io/vue-baidu-map/#/zh/start/installation
 
@@ -17,8 +18,23 @@
         anchor="BMAP_ANCHOR_TOP_LEFT"
       ></bm-map-type>
 
+      <!-- 比例尺 -->
+      <bm-scale anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-scale>
       <!-- 控件 -->
       <!-- <bm-city-list anchor="BMAP_ANCHOR_TOP_LEFT"></bm-city-list>   -->
+      <!-- 缩放 -->
+      <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+      <bm-marker
+        :position="{ lng: 116.404, lat: 39.915 }"
+        :dragging="true"
+        animation="BMAP_ANIMATION_BOUNCE"
+      >
+        <bm-label
+          content="我爱北京天安门"
+          :labelStyle="{ color: 'red', fontSize: '24px' }"
+          :offset="{ width: -35, height: 30 }"
+        />
+      </bm-marker>
 
       <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
     </baidu-map>
@@ -30,7 +46,7 @@ export default {
     return {
       // center: { lng: 0, lat: 0 },
       center: { lng: 116.404, lat: 39.915 },
-      zoom: 3
+      zoom: 5
     }
   },
   methods: {
@@ -38,8 +54,9 @@ export default {
       console.log(BMap, map)
       this.center.lng = 116.404
       this.center.lat = 39.915
-      this.zoom = 15
-    }
+      this.zoom = 5
+    },
+
   }
 }
 </script>

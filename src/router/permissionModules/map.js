@@ -33,6 +33,15 @@ const mapRouter = [
                     import(/* webpackChunkName: "Transtion" */ "@/views/Map/baidu/index.vue"),
             },
             {
+                path: "mapvgl",
+                name: "mapvgl",
+                meta: {
+                    title: "三维可视化地图",
+                },
+                component: () =>
+                    import(/* webpackChunkName: "Transtion" */ "@/views/Map/MapVGL/index.vue"),
+            },
+            {
                 path: "gaode",
                 name: "gaode",
                 meta: {

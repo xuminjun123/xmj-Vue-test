@@ -1,8 +1,18 @@
 "use strict";
 const webpack = require("webpack");
 const path = require("path");
+// public/index.html 中引入了静态资源，但是打包的时候 webpack 并不会帮我们拷贝到 dist 目录，
+// 因此 copy-webpack-plugin 就可以很好地帮我做拷贝的工作了。
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin'); // gzip 压缩
+
+// const HtmlWebpackPlugin = require('html-webpack-plugin'); // 生成 html 文件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 用于在打包前清理上一次项目生成的 bundle 文件
+
+// const PurifyCssWebpack = require('purifycss-webpack') // 去除生产环境重复css
+// const glob = require('glob') // 引入glob模块,用于扫描全部html文件中所引用的css
+
+// const PrerenderSPAPlugin = require('prerender-spa-plugin') // 将静态HTML预渲染到单页应用程序中。
 
 const productionGzipExtensions = [
   "js",
@@ -18,9 +28,6 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-// cesium目录映射
-const cesiumSource = 'node_modules/cesium/Source';
-const cesiumWorkers = '../Build/Cesium/Workers';
 
 const port = process.env.port || process.env.npm_config_port || 80 // 端口
 
@@ -58,47 +65,6 @@ module.exports = {
     },
     disableHostCheck: true,
   },
-  // configureWebpack: {
-  //   // name: name,
-  //   externals: {
-  //     //   vue: 'Vue',
-  //     //   'vue-router': 'VueRouter',
-  //     //   vuex: 'vue',
-  //     //   'element-ui': 'ELEMENT'
-  //   },
-  //   resolve: {
-  //     alias: {
-  //       "~": resolve("public"),
-  //       "@": resolve("src"),
-  //       // 'cesium': path.resolve(__dirname, '../node_modules/cesium/Source')
-  //     },
-  //   },
-
-  //   amd: {
-  //     // cesium 2
-  //     toUrlUndefined: true
-  //   },
-  //   module: {
-  //     // cesium 3 不加这个配置会报require引入警告
-  //     unknownContextCritical: false
-  //   },
-
-  //   // cesium 4
-  //   plugins: [
-  //     new CopyWebpackPlugin([
-  //       { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-  //       { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-  //       { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
-  //       { from: path.join(cesiumSource, 'ThirdParty/Workers'), to: 'ThirdParty/Workers' }
-  //     ]),
-  //     new webpack.DefinePlugin({
-  //       CESIUM_BASE_URL: JSON.stringify('./')
-  //     })
-  //   ],
-  //   module: {
-  //     unknownContextCritical: false
-  //   }
-  // },
 
   configureWebpack: {
     resolve: {
@@ -118,14 +84,52 @@ module.exports = {
     },
 
     plugins: [
+
+      // new HtmlWebpackPlugin({
+      //   filename: 'index.html',
+      //   template: path.join(__dirname, '/index.html'),
+      //   minify: {
+      //     // 压缩HTML文件
+      //     removeComments: true, // 移除HTML中的注释
+      //     collapseWhitespace: true, // 删除空白符与换行符
+      //     minifyCSS: true, // 压缩内联css
+      //   },
+      //   inject: true,
+      // }),
+
+      // new CleanWebpackPlugin(), // 所要清理的文件夹名称
+
+      // new PrerenderSPAPlugin({  // 预渲染
+      //   // 必需的——指向webpack输出应用程序的prerender路径。
+      //   staticDir: path.join(__dirname, 'dist'),
+      //   // 必需的 - Routes to render.
+      //   routes: ['/login', '/dashboard', '/animate/bounce', "/audio/audioTest","/backTop/backTopTest"],
+      // }),
+
+
+      // new webpack.HotModuleReplacementPlugin(), // 热更新插件 (webpack自带)
+
+      // new PurifyCssWebpack({
+      //   paths: glob.sync(path.join(__dirname, 'src/*.html')),
+      // }),
+
       //开启gzip压缩
       new CompressionWebpackPlugin({
         filename: "[path].gz[query]",
-        test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),  // pp文件名
+        test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),  // 匹配文件名
         threshold: 10240,   // 对于 超过10K的数据进行压缩
         minRatio: 0.8, //压缩率大于0.8的才压缩
         deleteOriginalAssets: false //是否删除原文件
       }),
+
+      new CopyWebpackPlugin([
+        {
+          from: 'public/js/*.js',
+          to: path.resolve(__dirname, 'dist', 'js'),
+          flatten: true,
+        },
+      ]),
+
 
       new CopyWebpackPlugin([
         {
@@ -157,36 +161,8 @@ module.exports = {
       unknownContextCritical: false
     }
   },
-  // configureWebpack: config => {
-
-  //   const plugins = [
-  //     /* cesium */
-  //     new CopyWebpackPlugin([
-  //       { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
-  //       { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
-  //       { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
-  //       { from: path.join(cesiumSource, 'ThirdParty/Workers'), to: 'ThirdParty/Workers' }
-  //     ]),
-  //     new webpack.DefinePlugin({
-  //       CESIUM_BASE_URL: JSON.stringify('./cesium')
-  //     })
-  //   ]
-
-  //   return {
-  //     plugins: plugins,
-  //     resolve: {
-  //       alias: {
-  //         "~": resolve("public"),
-  //         "@": resolve("src"),
-  //         // 'cesium': path.resolve(__dirname, '../node_modules/cesium/Source')
-  //       },
-  //     },
-  //   }
-
-  // },
 
   chainWebpack(config) {
-    // config.resolve.alias.set("cesium", resolve(cesiumSource))
 
     config.plugins.delete("preload"); // TODO: need test
     config.plugins.delete("prefetch"); // TODO: need test
@@ -213,6 +189,7 @@ module.exports = {
         .use("script-ext-html-webpack-plugin", [
           {
             // `runtime` must same as runtimeChunk name. default is `runtime`
+            // runtime '必须与runtimeChunk名称相同。 默认是“运行时  
             inline: /runtime\..*\.js$/,
           },
         ])
@@ -224,16 +201,16 @@ module.exports = {
             name: "chunk-libs",
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
-            chunks: "initial", // only package third parties that are initially dependent
+            chunks: "initial", // only package third parties that are initially dependent 只包最初依赖的第三方  
           },
           elementUI: {
-            name: "chunk-elementUI", // split elementUI into a single package
-            priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-            test: /[\\/]node_modules[\\/]_?element-ui(.*)/, // in order to adapt to cnpm
+            name: "chunk-elementUI", // split elementUI into a single package 将elementUI拆分为单个包
+            priority: 20, // 重量需要大于libs和app，否则会被打包成libs或app  
+            test: /[\\/]node_modules[\\/]_?element-ui(.*)/, // in order to adapt to cnpm 为了适应CNPM  
           },
           commons: {
             name: "chunk-commons",
-            test: resolve("src/components"), // can customize your rules
+            test: resolve("src/components"), // can customize your rules 可以定制你的规则
             minChunks: 3, //  minimum common number
             priority: 5,
             reuseExistingChunk: true,

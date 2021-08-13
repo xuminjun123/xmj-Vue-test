@@ -15,7 +15,7 @@
 <script>
 import IfShortChild from '@/components/IfShortChild.vue';
 export default {
-    name: 'vueName',
+    name: 'ifShort',
     components: {IfShortChild},
     props: {},
     data() {

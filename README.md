@@ -1,7 +1,9 @@
 # my-route
 rimraf node_modules
-git config --global http.sslverify "false"
+
 yarn add fuse.js@3.4.4
+https://juejin.cn/post/6995366083305685022  addroutes {Array}
+
 ## Project setup
 ```
 yarn install

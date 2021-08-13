@@ -56,12 +56,12 @@ const chartsRouter = [
             },
 
             {
-                path: 'mounted',
+                path: 'mountedFn',
                 component: () =>
                     import(
                         '@/views/Other/mounted.vue'
                     ),
-                name: 'mounted',
+                name: 'mountedFn',
                 meta: {
                     title: 'mounted',
                     noCache: true
