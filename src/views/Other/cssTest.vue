@@ -14,7 +14,7 @@
 <script>
 import CssTest from "@/components/CssTest.vue";
 export default {
-  name: 'cssTest',
+  name: 'cssStudy',
   components: {
     CssTest
   },

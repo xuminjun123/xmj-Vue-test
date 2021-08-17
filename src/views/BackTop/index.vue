@@ -86,7 +86,7 @@
   
   <script>
 export default {
-    name: "vueName",
+    name: "backTop",
     components: {},
     props: {},
     data() {

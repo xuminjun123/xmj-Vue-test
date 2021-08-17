@@ -22,7 +22,7 @@ const syncRouter = [
                 path: "syncTest",
                 name: "syncTest",
                 meta: {
-                    title: "syncTest",
+                    title: "sync修饰符",
                 },
                 component: () =>
                     import("@/views/Sync/index.vue"),

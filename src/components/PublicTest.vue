@@ -16,7 +16,7 @@
 <script>
 // import { config } from '~/config.js'    
 export default {
-  name: 'vueName',
+  name: 'PublicTest',
   components: {},
   props: {},
   data() {

@@ -22,7 +22,7 @@ const quillEditorRouter = [
                 path: "quillEditorTest",
                 name: "quillEditorTest",
                 meta: {
-                    title: "quillEditorTest",
+                    title: "富文本",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/QuillEditor/index.vue"),

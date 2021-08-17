@@ -20,7 +20,7 @@ const rightClickRouter = [
                 path: "right",
                 name: "right",
                 meta: {
-                    title: "右键事件1",
+                    title: "右键事件",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/RightClick/index.vue"),

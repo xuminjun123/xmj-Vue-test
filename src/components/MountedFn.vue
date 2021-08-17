@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'vueName',
+  name: 'MountedFn',
   components: {},
   props: {},
   data() {

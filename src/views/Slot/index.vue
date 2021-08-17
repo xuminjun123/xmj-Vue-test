@@ -35,8 +35,10 @@
 <script>
 import SlotTest from '@/components/SlotTest.vue';
 export default {
-    name: 'slotTest',
-    components: { SlotTest },
+    name: 'slotStudy',
+    components: { 
+        SlotTest
+     },
     props: {},
     data() {
         return {

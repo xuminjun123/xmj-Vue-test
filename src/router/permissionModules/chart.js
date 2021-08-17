@@ -35,7 +35,7 @@ const chartsRouter = [
         path: 'line-chart',
         component: () =>
           import(
-            /* webpackChunkName: "LineChart" */ '@/views/charts/LineChartDemo.vue'
+            /* webpackChunkName: "LineChartDemo" */ '@/views/charts/LineChartDemo.vue'
           ),
         name: 'LineChartDemo',
         meta: {

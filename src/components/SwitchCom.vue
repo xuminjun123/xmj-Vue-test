@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "vueName",
+  name: "switchCom",
   components: {},
   props: {
       switches:{

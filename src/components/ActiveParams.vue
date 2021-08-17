@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @param : 
+ * @return: 
+ * @Author: xmj
+ * @Date: 2021-06-08 10:29:56
+-->
 script<!--
  * @Description: 动态指令和参数使用
  * @param : 
@@ -13,7 +20,7 @@ script<!--
 
 <script>
 export default {
-  name: "vueName",
+  name: "activeParams",
   components: {},
   props: {
     name: {

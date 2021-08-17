@@ -22,7 +22,7 @@ const lookDocumentRouter = [
                 path: "lookDocumentTest",
                 name: "lookDocumentTest",
                 meta: {
-                    title: "lookDocumentTest",
+                    title: "是否在可视区域",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/LookDocument/index.vue"),

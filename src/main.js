@@ -76,6 +76,7 @@ Vue.use(BaiduMap, {
   ak: 'adMRpuTBZ6DMnFkjpfs9o83xUSSLYNTG'
 })
 
+
 // 高德地图
 import VueAMap from 'vue-amap';
 VueAMap.initAMapApiLoader({

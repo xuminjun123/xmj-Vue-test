@@ -56,13 +56,13 @@
 
 <script>
 export default {
-  name: 'vueName',
+  name: 'slotTest',
   components: {},
   props: {},
   data() {
     return {
       age: 18,
-      title:'title'
+      title: 'title'
     };
   },
   watch: {},

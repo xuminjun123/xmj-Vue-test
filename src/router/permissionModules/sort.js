@@ -23,7 +23,7 @@ const sortRouter = [
                 path: "sortTest",
                 name: "sortTest",
                 meta: {
-                    title: "sortTest",
+                    title: "排序练习",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/Sort/index.vue"),

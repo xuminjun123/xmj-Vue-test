@@ -22,7 +22,7 @@ const keepAliveRouter = [
                 path: "keepAliveTest",
                 name: "keepAliveTest",
                 meta: {
-                    title: "keepAliveTest",
+                    title: "keepAlive使用",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/KeepAlive/index.vue"),

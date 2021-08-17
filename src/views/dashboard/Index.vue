@@ -7,6 +7,7 @@
 -->
 <template>
   <div class="wrapper">
+    <h4>工作台</h4>
     <div>
       <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -56,9 +57,4 @@ export default {
 
 </script>
 <style lang='scss' scoped>
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 </style>

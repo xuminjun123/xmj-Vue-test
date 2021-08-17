@@ -23,7 +23,7 @@ const luckyCanvasRouter = [
                 path: "luckyCanvasTest",
                 name: "luckyCanvasTest",
                 meta: {
-                    title: "抽奖",
+                    title: "大转盘",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/LuckWheel/index.vue"),

@@ -36,7 +36,7 @@ const mapRouter = [
                 path: "mapvgl",
                 name: "mapvgl",
                 meta: {
-                    title: "三维可视化地图",
+                    title: "百度三维地图",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/Map/MapVGL/index.vue"),
@@ -45,10 +45,19 @@ const mapRouter = [
                 path: "gaode",
                 name: "gaode",
                 meta: {
-                    title: "gaode地图",
+                    title: "高德地图",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Gaode" */ "@/views/Map/gaode/index.vue"),
+            },
+            {
+                path: "tencent",
+                name: "tencent",
+                meta: {
+                    title: "腾讯地图",
+                },
+                component: () =>
+                    import(/* webpackChunkName: "Gaode" */ "@/views/Map/tencent/index.vue"),
             },
             {
                 path: "maptalks",

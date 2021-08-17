@@ -23,7 +23,7 @@ const slotRouter = [
                 path: "slotTest",
                 name: "slotTest",
                 meta: {
-                    title: "slotTest",
+                    title: "slot使用",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/Slot/index.vue"),

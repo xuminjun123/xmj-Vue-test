@@ -3,32 +3,33 @@
  * @param : 
  * @return: 
  * @Author: xmj
- * @Date: 2021-08-03 15:18:05
+ * @Date: 2021-08-17 11:29:23
  */
+
 import Layout from '@/layout/index.vue'
 
-const cesiumRouter = [
+const uploadRouter = [
     {
-        path: '/cesium',
+        path: '/upload',
         component: Layout,
         redirect: 'noredirect',
-        name: 'cesium',
+        name: 'upload',
         meta: {
-            title: 'cesium',
+            title: 'upload',
             // icon: '#iconchart1'
         },
         children: [
             {
-                path: "cesiumTest",
-                name: "cesiumTest",
+                path: "uploadTest",
+                name: "uploadTest",
                 meta: {
-                    title: "cesium使用",
+                    title: "多文件上传使用",
                 },
                 component: () =>
-                    import(/* webpackChunkName: "cesium" */ "@/views/Cesium/index.vue"),
+                    import("@/views/Upload/index.vue"),
             },
         ]
     }
 ]
 
-export default cesiumRouter
+export default uploadRouter

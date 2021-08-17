@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    name: 'vueName',
+    name: 'ShowPwdTest',
     components: {},
     props: {
         show:{

@@ -22,7 +22,7 @@ const watchRouter = [
                 path: "watchTest",
                 name: "watchTest",
                 meta: {
-                    title: "watchTest",
+                    title: "watch使用",
                 },
                 component: () =>
                     import("@/views/watch/index.vue"),

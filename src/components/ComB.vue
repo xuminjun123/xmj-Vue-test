@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'vueName',
+    name: 'comB',
     components: {},
     props: {},
     data() {

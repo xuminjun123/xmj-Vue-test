@@ -23,7 +23,7 @@ const loadshRouter = [
                 path: "loadshTest",
                 name: "loadshTest",
                 meta: {
-                    title: "loadshTest",
+                    title: "loadsh库使用",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/Loadsh/index.vue"),

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "vueName",
+  name: "PageAbout",
   components: {},
   props: {
     msg1: {

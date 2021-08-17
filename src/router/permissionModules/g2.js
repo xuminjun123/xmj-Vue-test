@@ -22,7 +22,7 @@ const esRouter = [
                 path: "g2",
                 name: "g2Test",
                 meta: {
-                    title: "g2",
+                    title: "g2-echarts",
                 },
                 component: () =>
                     import(/* webpackChunkName: "Transtion" */ "@/views/G2/index.vue"),

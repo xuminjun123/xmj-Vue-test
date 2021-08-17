@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'vueName',
+  name: 'GetData',
   components: {},
   props: {
     styleObject:{
