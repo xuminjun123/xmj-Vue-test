@@ -31,13 +31,21 @@
                 <audio :src="url" id="audioId" preload />
             </div>
         </div>
+
+        <template>
+            <!-- 音乐带滚动条 -->
+            <audio-comp></audio-comp>
+        </template>
     </div>
 </template>
 
 <script>
+import AudioComp from '@/components/AudioComp'    
 export default {
     name: 'audioTest',
-    components: {},
+    components: {
+        AudioComp
+    },
     props: {},
     data() {
         return {

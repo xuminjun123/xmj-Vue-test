@@ -11,6 +11,11 @@ import router from "./router";
 import store from "./store";
 import "@/core"; // 管理第三方库、全局变量
 
+// 引导
+import VueIntro from 'vue-introjs';
+Vue.use(VueIntro);
+import 'intro.js/introjs.css';
+
 // import '@/utils/flexible'  // css->rem
 
 // vxe-table 全部包

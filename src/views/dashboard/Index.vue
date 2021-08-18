@@ -25,7 +25,7 @@
       <el-col :span="12">
         <div class="grid-content bg-purple-light">
           <h4>今日天气</h4>
-          <el-card>
+          <el-card class="box-card">
             <iframe
               width="232"
               height="80"
@@ -39,12 +39,12 @@
       </el-col>
     </el-row>
     <!-- 语言翻译 -->
-    <el-card>
+    <!-- <el-card>
       <h4>语言翻译</h4>
       <el-input v-model="value"></el-input>
        {{tst}}
       <el-button @click="translation">翻译</el-button>
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 

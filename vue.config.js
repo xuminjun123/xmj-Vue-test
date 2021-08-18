@@ -85,6 +85,9 @@ module.exports = {
 
     plugins: [
 
+      new webpack.ProvidePlugin({
+        introJs: ['intro.js','introJs']
+      }),
       // new HtmlWebpackPlugin({
       //   filename: 'index.html',
       //   template: path.join(__dirname, '/index.html'),
