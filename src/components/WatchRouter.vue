@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'watchRouter',
+  name: 'watchRouterComp',
   components: {},
   props: {
       msg:{

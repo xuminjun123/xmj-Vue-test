@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'MountedFn',
+  name: 'MountedFnComp',
   components: {},
   props: {},
   data() {

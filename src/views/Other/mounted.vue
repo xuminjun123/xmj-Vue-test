@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import MountedFn from '@/components/MountedFn.vue';
+import MountedFn from '@/components/MountedFnComp.vue';
 export default {
-    name: 'mountedFn',
+    name: 'mountedFnFather',
     components: { MountedFn },
     props: {},
     data() {
@@ -30,7 +30,10 @@ export default {
         }
     },
     created() { },
-    mounted() { }
+    mounted() { 
+       
+    }
+
 };
 </script>
 

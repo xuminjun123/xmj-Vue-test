@@ -37,7 +37,7 @@
 <script>
 import WatchRouter from '@/components/WatchRouter.vue';
 export default {
-    name: 'WatchRouter',
+    name: 'WatchRouterFather',
     components: { WatchRouter },
     props: {},
     data() {
