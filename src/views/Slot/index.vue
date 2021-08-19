@@ -66,7 +66,7 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 230px;
+        width: 230px;  
         height: 90px;
         line-height: 90px;
         text-align: center;

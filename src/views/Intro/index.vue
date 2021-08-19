@@ -12,9 +12,9 @@
 <template>
     <div>
         <div>
-            <el-card v-intro="'内容1'" v-intro-position="'top'" class="step_3">用户引导的使用</el-card>
-            <el-button v-intro="'内容2'" v-intro-position="'top'" class="step_2">按钮</el-button>
-            <el-button v-intro="content" v-intro-position="'top'" class="step_1">下一步按钮</el-button>
+            <el-card v-intro="'内容1'"  class="step_3">用户引导的使用</el-card>
+            <el-button v-intro="'内容2'"  class="step_2">按钮</el-button>
+            <el-button v-intro="content"  class="step_1">下一步按钮</el-button>
         </div>
     </div>
 </template>
@@ -63,7 +63,7 @@ export default {
                 },
                 {
                     element: '.step_3',
-                    intro: '步骤2：对应class为step_3的元素!完成引导 👋',
+                    intro: '步骤2：对应class为step_3的元素!完成引导 🙌',
                     position: 'left',
                 },
             ]

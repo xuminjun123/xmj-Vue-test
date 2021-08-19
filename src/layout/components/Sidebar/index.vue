@@ -40,7 +40,9 @@ export default {
 
   computed: {
     routes(){
-      return this.store.state.permission.routes
+      console.log('routes-->', this.store);
+      return this.store.state.permission.routes 
+      // return this.store.state.permission.routes
     }
   },
 

@@ -3,7 +3,7 @@
  * @Author: ZY
  * @Date: 2020-12-17 15:32:33
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-08-12 10:21:03
+ * @LastEditTime: 2021-08-19 16:10:02
 -->
 <template>
   <div :class="classObj" class="app-wrapper">
@@ -92,7 +92,7 @@ export default {
 .sidebar-container {
   transition: width 0.28s;
   // width: $sideBarWidth !important;
-  width: 300px !important;
+  width: 280px !important;
   height: 100%;
   position: fixed;
   font-size: 0px;
@@ -111,7 +111,7 @@ export default {
   z-index: 9;
   border: 1px solid #333;
   // width: calc(100% - #{$sideBarWidth});
-  width: calc(100% - 300px);
+  width: calc(100% - 280px);
   transition: width 0.28s;
 }
 

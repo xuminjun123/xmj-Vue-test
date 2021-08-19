@@ -7,15 +7,7 @@
 -->
 <template>
   <div class="wrapper">
-    <p>普通</p>
-    <p class="letterSpacre">letterSpacre样式</p>
-    <p class="wordSpacre">wordSpacre样式</p>
-    <p class="wordBreak">wordbreak样式</p>
-    <p class="calc">calc样式</p>
-    <p class="color">color</p>
-    <p class="textFillColor">text-fill-color样式</p>
-    <p class="text-stroke">text-stroke</p>
-
+    <h2>按钮hover 按钮涟漪效果</h2>
     <!-- 按钮涟漪效果 -->
     <div>
       <button class="btn btn-primary">
@@ -35,6 +27,15 @@
         <span class="mask mask-4"></span>
       </button>
     </div>
+
+    <p>普通</p>
+    <p class="letterSpacre">letterSpacre样式</p>
+    <p class="wordSpacre">wordSpacre样式</p>
+    <p class="wordBreak">wordbreak样式</p>
+    <p class="calc">calc样式</p>
+    <p class="color">color</p>
+    <p class="textFillColor">text-fill-color样式</p>
+    <p class="text-stroke">text-stroke</p>
   </div>
 </template>
 

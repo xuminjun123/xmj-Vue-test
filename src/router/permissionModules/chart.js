@@ -118,6 +118,18 @@ const chartsRouter = [
           title: 'RaddarChartDemo',
           noCache: true
         }
+      },
+      {
+        path: 'highLight-chart',
+        component: () =>
+          import(
+            /* webpackChunkName: "MixedChat" */ '@/views/charts/HighlightDemo.vue'
+          ),
+        name: 'HighlightDemo',
+        meta: {
+          title: '高亮地图',
+          noCache: true
+        }
       }
     ]
   }

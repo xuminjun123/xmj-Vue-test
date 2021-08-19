@@ -74,7 +74,7 @@ export default {
             if (documentClientHeight >= (htmlElementClientTop + 200)) {
                 // TODO 执行你要做的操作
                 console.log('是否进入可视区域');
-
+                this.$tip.success("logo进入可视区域")
             }
         },
     },
