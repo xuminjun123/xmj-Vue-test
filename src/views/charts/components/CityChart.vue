@@ -111,13 +111,14 @@ export default {
         this.$nextTick(() => {
             let name = decodeURIComponent(this.$route.query.name);  // url 解码
             option.series[0].map = name
+        
+            
+            this.mycharts = echarts.init(this.$refs.mapbox)
+            // 初始化echarts
+            this.mycharts.setOption(option);
+            this.loading = false
+            this.handler()
         })
-
-        this.mycharts = echarts.init(this.$refs.mapbox)
-        // 初始化echarts
-        this.mycharts.setOption(option);
-        this.loading = false
-        this.handler()
     },
     methods: {
         handler() {

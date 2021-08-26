@@ -28,6 +28,12 @@
       </button>
     </div>
 
+    <!--  user-select: 
+                      all ; 点击就获取标签内文本
+                      none ; 无法选中文本
+    -->
+    <span class="user" style="user-select:all">user-select</span>
+
     <p>普通</p>
     <p class="letterSpacre">letterSpacre样式</p>
     <p class="wordSpacre">wordSpacre样式</p>
@@ -57,6 +63,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   background: white;
+
   .letterSpacre {
     border: 1px solid darkgreen;
     letter-spacing: 15px;

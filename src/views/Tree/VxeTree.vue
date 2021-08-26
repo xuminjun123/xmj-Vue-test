@@ -77,7 +77,8 @@ export default {
     methods: {
         // 勾选的数据
         selectChangeEvent({ records }) {
-            console.info(`勾选${records.length}个树形节点`, records)
+            this.$tip.success(`勾选${records.length}个树形节点`, records)
+            // console.info(`勾选${records.length}个树形节点`, records)
         }
     }
 }

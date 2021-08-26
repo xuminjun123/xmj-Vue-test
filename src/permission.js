@@ -35,7 +35,6 @@ router.beforeEach(async (to, from, next) => {
   // Start progress bar
   NProgress.start()
   const store = useStore()
-
   // 判断是否登录
   if (useStore().state.user.token) {
 

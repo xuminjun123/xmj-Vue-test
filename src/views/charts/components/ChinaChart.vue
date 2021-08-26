@@ -118,11 +118,14 @@ export default {
   },
   mounted() {
     // this.getData()
-    this.mycharts = echarts.init(this.$refs.mapbox)
+    this.$nextTick(()=>{
+      this.mycharts = echarts.init(this.$refs.mapbox)
     // 初始化echarts
     this.mycharts.setOption(option);
 
     this.handler()
+    })
+   
   },
   methods: {
     handler() {

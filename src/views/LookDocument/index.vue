@@ -54,7 +54,7 @@
 <script>
 import img from "@/assets/logo.png";
 export default {
-    name: 'vueName',
+    name: 'lookDOc',
     components: {},
     props: {},
     data() {
